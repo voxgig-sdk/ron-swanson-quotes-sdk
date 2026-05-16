@@ -1,0 +1,20 @@
+{
+  "existing": {
+    "quote": {
+      "QUOTE00": {
+        "term": "TERM01"
+      },
+      "QUOTE01": {
+        "term": "TERM01"
+      },
+      "QUOTE02": {
+        "term": "TERM01"
+      }
+    }
+  },
+  "new": {
+    "quote": {
+      "quote_ref01": {}
+    }
+  }
+}

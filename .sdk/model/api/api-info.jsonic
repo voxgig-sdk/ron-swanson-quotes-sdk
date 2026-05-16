@@ -1,0 +1,28 @@
+# API Information
+
+
+main: {
+  kit: {
+    info: {
+      contact: {
+        name: "API Documentation"
+        url: "https://github.com/jamesseanwright/ron-swanson-quotes"
+      }
+      description: "This API provides a simple way to retrieve quotes from Ron Swanson, a character from the television show Parks and Recreation. It supports different endpoints to fetch a single quote, multiple quotes, or to search for quotes containing specific terms."
+      license: {
+        name: "Apache-2.0"
+        url: "https://www.apache.org/licenses/LICENSE-2.0"
+      }
+      servers: [
+        {
+          description: "Production server"
+          url: "https://ron-swanson-quotes.herokuapp.com/v2"
+        }
+      ]
+      title: "Ron Swanson Quotes API"
+      version: "2.0.0"
+    }
+  }
+}
+
+}

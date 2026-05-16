@@ -1,0 +1,14 @@
+{
+  "existing": {
+    "schema": {
+      "SCHEMA00": {},
+      "SCHEMA01": {},
+      "SCHEMA02": {}
+    }
+  },
+  "new": {
+    "schema": {
+      "schema_ref01": {}
+    }
+  }
+}

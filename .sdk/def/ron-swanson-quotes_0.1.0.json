@@ -1,0 +1,197 @@
+{
+  "openapi": "3.0.3",
+  "info": {
+    "title": "Ron Swanson Quotes API",
+    "description": "This API provides a simple way to retrieve quotes from Ron Swanson, a character from the television show Parks and Recreation. It supports different endpoints to fetch a single quote, multiple quotes, or to search for quotes containing specific terms.",
+    "version": "2.0.0",
+    "contact": {
+      "name": "API Documentation",
+      "url": "https://github.com/jamesseanwright/ron-swanson-quotes"
+    },
+    "license": {
+      "name": "Apache-2.0",
+      "url": "https://www.apache.org/licenses/LICENSE-2.0"
+    }
+  },
+  "servers": [
+    {
+      "url": "https://ron-swanson-quotes.herokuapp.com/v2",
+      "description": "Production server"
+    }
+  ],
+  "paths": {
+    "/quotes": {
+      "get": {
+        "summary": "Get a single Ron Swanson quote",
+        "description": "Returns an array with one random Ron Swanson quote",
+        "operationId": "getSingleQuote",
+        "tags": [
+          "Quotes"
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response with a single quote",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  },
+                  "minItems": 1,
+                  "maxItems": 1
+                },
+                "example": [
+                  "Capitalism: God's way of determining who is smart and who is poor."
+                ]
+              }
+            },
+            "headers": {
+              "Access-Control-Allow-Origin": {
+                "description": "CORS header allowing requests from any domain",
+                "schema": {
+                  "type": "string",
+                  "example": "*"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/quotes/{count}": {
+      "get": {
+        "summary": "Get multiple Ron Swanson quotes",
+        "description": "Returns an array with the specified number of random Ron Swanson quotes",
+        "operationId": "getMultipleQuotes",
+        "tags": [
+          "Quotes"
+        ],
+        "parameters": [
+          {
+            "name": "count",
+            "in": "path",
+            "description": "Number of quotes to retrieve",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "minimum": 1,
+              "example": 2
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response with multiple quotes",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                "example": [
+                  "Capitalism: God's way of determining who is smart and who is poor.",
+                  "Clear alcohols are for rich women on diets."
+                ]
+              }
+            },
+            "headers": {
+              "Access-Control-Allow-Origin": {
+                "description": "CORS header allowing requests from any domain",
+                "schema": {
+                  "type": "string",
+                  "example": "*"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/quotes/search/{term}": {
+      "get": {
+        "summary": "Search for Ron Swanson quotes",
+        "description": "Returns an array of quotes matching the search term without case sensitivity",
+        "operationId": "searchQuotes",
+        "tags": [
+          "Quotes"
+        ],
+        "parameters": [
+          {
+            "name": "term",
+            "in": "path",
+            "description": "Search term to find in quotes (case insensitive)",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "example": "hate"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response with matching quotes",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                "example": [
+                  "There's only one thing I hate more than lying: skim milk. Which is water that's lying about being milk.",
+                  "I hate everything."
+                ]
+              }
+            },
+            "headers": {
+              "Access-Control-Allow-Origin": {
+                "description": "CORS header allowing requests from any domain",
+                "schema": {
+                  "type": "string",
+                  "example": "*"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/schema": {
+      "get": {
+        "summary": "Get OpenAPI 3 schema",
+        "description": "Returns the OpenAPI 3 schema for this API",
+        "operationId": "getSchema",
+        "tags": [
+          "Schema"
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response with OpenAPI schema",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "description": "OpenAPI 3.0 specification"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "tags": [
+    {
+      "name": "Quotes",
+      "description": "Endpoints for retrieving Ron Swanson quotes"
+    },
+    {
+      "name": "Schema",
+      "description": "API schema information"
+    }
+  ]
+}
