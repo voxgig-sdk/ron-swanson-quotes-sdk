@@ -1,6 +1,6 @@
 package utility
 
-import "github.com/voxgig-sdk/ron-swanson-quotes-sdk/core"
+import "github.com/voxgig-sdk/ron-swanson-quotes-sdk/go/core"
 
 func init() {
 	core.UtilityRegistrar = registerAll

@@ -1,9 +1,15 @@
 {
   "existing": {
     "schema": {
-      "SCHEMA00": {},
-      "SCHEMA01": {},
-      "SCHEMA02": {}
+      "SCHEMA00": {
+        "id": "SCHEMA00"
+      },
+      "SCHEMA01": {
+        "id": "SCHEMA01"
+      },
+      "SCHEMA02": {
+        "id": "SCHEMA02"
+      }
     }
   },
   "new": {

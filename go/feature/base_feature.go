@@ -1,7 +1,7 @@
 package feature
 
 import (
-	"github.com/voxgig-sdk/ron-swanson-quotes-sdk/core"
+	"github.com/voxgig-sdk/ron-swanson-quotes-sdk/go/core"
 )
 
 type BaseFeature struct {
