@@ -17,9 +17,7 @@ loading a specific record.
 ```ts
 import { RonSwansonQuotesSDK } from 'ron-swanson-quotes'
 
-const client = new RonSwansonQuotesSDK({
-  apikey: process.env.RON-SWANSON-QUOTES_APIKEY,
-})
+const client = new RonSwansonQuotesSDK({})
 ```
 
 ### 2. List quotes
@@ -94,7 +92,7 @@ const result = await client.Planet().load({ id: 'test01' })
 You can also use the instance method:
 
 ```ts
-const client = new RonSwansonQuotesSDK({ apikey: '...' })
+const client = new RonSwansonQuotesSDK()
 const testClient = client.tester()
 ```
 
@@ -130,7 +128,6 @@ const logger = {
 }
 
 const client = new RonSwansonQuotesSDK({
-  apikey: '...',
   extend: [logger],
 })
 ```
@@ -141,7 +138,6 @@ Create a `.env.local` file at the project root:
 
 ```
 RON-SWANSON-QUOTES_TEST_LIVE=TRUE
-RON-SWANSON-QUOTES_APIKEY=<your-key>
 ```
 
 Then run:
@@ -159,7 +155,6 @@ cd ts && npm test
 
 ```ts
 new RonSwansonQuotesSDK(options?: {
-  apikey?: string
   base?: string
   prefix?: string
   suffix?: string
@@ -170,7 +165,6 @@ new RonSwansonQuotesSDK(options?: {
 
 | Option | Type | Description |
 | --- | --- | --- |
-| `apikey` | `string` | API key for authentication. |
 | `base` | `string` | Base URL of the API server. |
 | `prefix` | `string` | URL path prefix prepended to all requests. |
 | `suffix` | `string` | URL path suffix appended to all requests. |

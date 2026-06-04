@@ -38,10 +38,6 @@ class Config {
   options = {
     base: 'https://ron-swanson-quotes.herokuapp.com/v2',
 
-    auth: {
-      prefix: 'Bearer',
-    },
-
     headers: {
       "content-type": "application/json"
     },

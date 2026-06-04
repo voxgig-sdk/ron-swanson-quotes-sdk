@@ -62,14 +62,12 @@ function schema_direct_setup(mockres)
   local env = runner.env_override({
     ["RONSWANSONQUOTES_TEST_SCHEMA_ENTID"] = {},
     ["RONSWANSONQUOTES_TEST_LIVE"] = "FALSE",
-    ["RONSWANSONQUOTES_APIKEY"] = "NONE",
   })
 
   local live = env["RONSWANSONQUOTES_TEST_LIVE"] == "TRUE"
 
   if live then
     local merged_opts = {
-      apikey = env["RONSWANSONQUOTES_APIKEY"],
     }
     local client = sdk.new(merged_opts)
     return {
