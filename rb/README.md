@@ -10,13 +10,13 @@ The Ruby SDK for the RonSwansonQuotes API — an entity-oriented client using id
 
 ## Install
 ```bash
-gem install ron-swanson-quotes-sdk
+gem install voxgig-sdk-ron-swanson-quotes
 ```
 
 Or add to your `Gemfile`:
 
 ```ruby
-gem "ron-swanson-quotes-sdk"
+gem "voxgig-sdk-ron-swanson-quotes"
 ```
 
 Then run:

@@ -1,8 +1,17 @@
 {
   "name": "voxgig-sdk/ron-swanson-quotes",
-  "description": "RonSwansonQuotes SDK for PHP",
+  "description": "Unofficial generated PHP SDK for the Ron Swanson Quotes public API. Not affiliated with or endorsed by the upstream API provider.",
   "type": "library",
+  "keywords": ["voxgig", "sdk", "generated-sdk", "openapi", "api-client", "ron-swanson-quotes"],
+  "homepage": "https://github.com/voxgig-sdk/ron-swanson-quotes-sdk",
   "license": "MIT",
+  "authors": [
+    { "name": "Voxgig", "homepage": "https://voxgig.com" }
+  ],
+  "support": {
+    "issues": "https://github.com/voxgig-sdk/ron-swanson-quotes-sdk/issues",
+    "source": "https://github.com/voxgig-sdk/ron-swanson-quotes-sdk"
+  },
   "minimum-stability": "stable",
   "require": {
     "php": ">=8.2"

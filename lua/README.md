@@ -10,7 +10,7 @@ The Lua SDK for the RonSwansonQuotes API — an entity-oriented client using Lua
 
 ## Install
 ```bash
-luarocks install ron-swanson-quotes-sdk
+luarocks install voxgig-sdk-ron-swanson-quotes
 ```
 
 If the module is not yet published, add the source directory to

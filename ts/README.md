@@ -10,7 +10,7 @@ The TypeScript SDK for the RonSwansonQuotes API — a type-safe, entity-oriented
 
 ## Install
 ```bash
-npm install ron-swanson-quotes
+npm install @voxgig-sdk/ron-swanson-quotes
 ```
 ## Tutorial: your first API call
 

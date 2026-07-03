@@ -10,7 +10,7 @@ The Python SDK for the RonSwansonQuotes API — an entity-oriented client follow
 
 ## Install
 ```bash
-pip install ron-swanson-quotes-sdk
+pip install voxgig-sdk-ron-swanson-quotes
 ```
 
 Or install from source:

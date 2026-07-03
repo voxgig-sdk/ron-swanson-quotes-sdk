@@ -10,7 +10,7 @@ The PHP SDK for the RonSwansonQuotes API — an entity-oriented client using PHP
 
 ## Install
 ```bash
-composer require voxgig/ron-swanson-quotes-sdk
+composer require voxgig-sdk/ron-swanson-quotes
 ```
 
 

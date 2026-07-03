@@ -1,7 +1,23 @@
 {
   "name": "@voxgig-sdk/ron-swanson-quotes",
   "version": "0.0.1",
-  "description": "DESCRIPTION",
+  "description": "Unofficial generated TypeScript SDK for the Ron Swanson Quotes public API. Not affiliated with or endorsed by the upstream API provider.",
+  "keywords": [
+    "voxgig",
+    "sdk",
+    "generated-sdk",
+    "openapi",
+    "api-client",
+    "ron-swanson-quotes"
+  ],
+  "homepage": "https://github.com/voxgig-sdk/ron-swanson-quotes-sdk#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/voxgig-sdk/ron-swanson-quotes-sdk.git"
+  },
+  "bugs": {
+    "url": "https://github.com/voxgig-sdk/ron-swanson-quotes-sdk/issues"
+  },
   "main": "dist/RonSwansonQuotesSDK.js",
   "type": "commonjs",
   "types": "dist/RonSwansonQuotesSDK.d.ts",
@@ -14,7 +30,10 @@
     "clean": "rm -rf node_modules yarn.lock package-lock.json",
     "reset": "npm run clean && npm i && npm run build && npm test"
   },
-  "author": "RonSwansonQuotes",
+  "author": {
+    "name": "Voxgig",
+    "url": "https://voxgig.com"
+  },
   "license": "MIT",
   "dependencies": {},
   "peerDependencies": {},
