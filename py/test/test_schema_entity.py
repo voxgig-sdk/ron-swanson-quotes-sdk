@@ -91,6 +91,7 @@ def _schema_basic_setup(extra):
         "RONSWANSONQUOTES_TEST_SCHEMA_ENTID": idmap,
         "RONSWANSONQUOTES_TEST_LIVE": "FALSE",
         "RONSWANSONQUOTES_TEST_EXPLAIN": "FALSE",
+        "RONSWANSONQUOTES_APIKEY": "NONE",
     })
 
     idmap_resolved = helpers.to_map(
@@ -101,6 +102,7 @@ def _schema_basic_setup(extra):
     if env.get("RONSWANSONQUOTES_TEST_LIVE") == "TRUE":
         merged_opts = vs.merge([
             {
+                "apikey": env.get("RONSWANSONQUOTES_APIKEY"),
             },
             extra or {},
         ])

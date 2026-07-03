@@ -21,29 +21,7 @@ main: {
       ]
       title: "Ron Swanson Quotes API"
       version: "2.0.0"
-      tagline: "Fetch random Ron Swanson quotes from Parks and Recreation, with search and batch endpoints"
-      homepage: "https://github.com/jamesseanwright/ron-swanson-quotes"
-      docs_url: "https://github.com/jamesseanwright/ron-swanson-quotes"
-      license_short: "Apache-2.0"
-      license_md: `- Licensed under the [Apache License 2.0](https://www.apache.org/licenses/LICENSE-2.0).
-- Quoted dialogue is from the NBC television series *Parks and Recreation*; the API author does not claim ownership of the underlying quotes.
-- Attribution to the upstream project ([jamesseanwright/ron-swanson-quotes](https://github.com/jamesseanwright/ron-swanson-quotes)) is appreciated when redistributing.
-- The upstream repository was archived in January 2026 and is now read-only.`
-      about_md: `The Ron Swanson Quotes API is a small public service that returns quotes from the character Ron Swanson in NBC's *Parks and Recreation*. It is maintained (now archived) by [James Wright](https://github.com/jamesseanwright) and hosted on Heroku at \`https://ron-swanson-quotes.herokuapp.com/v2\`.
-
-What you get from the API:
-
-- A single random quote via \`GET /v2/quotes\`.
-- A batch of random quotes via \`GET /v2/quotes/<count>\`.
-- Case-insensitive substring search via \`GET /v2/quotes/search/<term>\`.
-- The machine-readable OpenAPI 3 specification via \`GET /v2/schema\`.
-
-Responses are plain JSON arrays of quote strings. No API key or authentication is required, and the service sends \`Access-Control-Allow-Origin: *\`, so it can be called directly from browsers. The upstream GitHub repository was archived on 19 January 2026 and is no longer accepting changes, though the hosted endpoint remains reachable.`
-      entity_desc: {
-        quote: "A single line of dialogue attributed to Ron Swanson, returned as a JSON string; available via `GET /v2/quotes`, `GET /v2/quotes/<count>`, and `GET /v2/quotes/search/<term>`."
-        schema: "The OpenAPI 3 description of the API itself, served as JSON at `GET /v2/schema`."
-      }
-      auth: false
     }
   }
 }
+

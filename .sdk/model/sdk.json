@@ -1,45 +1,13 @@
 {
-  "name": "ron-swanson-quotes",
-  "origin": "voxgig-sdk",
   "def": "ron-swanson-quotes_0.1.0.json",
   "main": {
+    "def": {
+      "desc": ""
+    },
     "kit": {
-      "info": {
-        "contact": {
-          "name": "API Documentation",
-          "url": "https://github.com/jamesseanwright/ron-swanson-quotes"
-        },
-        "description": "This API provides a simple way to retrieve quotes from Ron Swanson, a character from the television show Parks and Recreation. It supports different endpoints to fetch a single quote, multiple quotes, or to search for quotes containing specific terms.",
-        "license": {
-          "name": "Apache-2.0",
-          "url": "https://www.apache.org/licenses/LICENSE-2.0"
-        },
-        "servers": [
-          {
-            "description": "Production server",
-            "url": "https://ron-swanson-quotes.herokuapp.com/v2"
-          }
-        ],
-        "title": "Ron Swanson Quotes API",
-        "version": "2.0.0",
-        "tagline": "Fetch random Ron Swanson quotes from Parks and Recreation, with search and batch endpoints",
-        "homepage": "https://github.com/jamesseanwright/ron-swanson-quotes",
-        "docs_url": "https://github.com/jamesseanwright/ron-swanson-quotes",
-        "license_short": "Apache-2.0",
-        "license_md": "- Licensed under the [Apache License 2.0](https://www.apache.org/licenses/LICENSE-2.0).\n- Quoted dialogue is from the NBC television series *Parks and Recreation*; the API author does not claim ownership of the underlying quotes.\n- Attribution to the upstream project ([jamesseanwright/ron-swanson-quotes](https://github.com/jamesseanwright/ron-swanson-quotes)) is appreciated when redistributing.\n- The upstream repository was archived in January 2026 and is now read-only.",
-        "about_md": "The Ron Swanson Quotes API is a small public service that returns quotes from the character Ron Swanson in NBC's *Parks and Recreation*. It is maintained (now archived) by [James Wright](https://github.com/jamesseanwright) and hosted on Heroku at `https://ron-swanson-quotes.herokuapp.com/v2`.\n\nWhat you get from the API:\n\n- A single random quote via `GET /v2/quotes`.\n- A batch of random quotes via `GET /v2/quotes/<count>`.\n- Case-insensitive substring search via `GET /v2/quotes/search/<term>`.\n- The machine-readable OpenAPI 3 specification via `GET /v2/schema`.\n\nResponses are plain JSON arrays of quote strings. No API key or authentication is required, and the service sends `Access-Control-Allow-Origin: *`, so it can be called directly from browsers. The upstream GitHub repository was archived on 19 January 2026 and is no longer accepting changes, though the hosted endpoint remains reachable.",
-        "entity_desc": {
-          "quote": "A single line of dialogue attributed to Ron Swanson, returned as a JSON string; available via `GET /v2/quotes`, `GET /v2/quotes/<count>`, and `GET /v2/quotes/search/<term>`.",
-          "schema": "The OpenAPI 3 description of the API itself, served as JSON at `GET /v2/schema`."
-        },
-        "auth": false
-      },
       "config": {
         "auth": {
           "prefix": "Bearer"
-        },
-        "headers": {
-          "content-type": "application/json"
         },
         "docs_order": [
           "ts",
@@ -48,49 +16,56 @@
           "go",
           "rb",
           "lua"
-        ]
+        ],
+        "headers": {
+          "content-type": "application/json"
+        }
       },
       "entity": {
         "quote": {
+          "active": true,
           "alias": {
             "field": {}
           },
+          "fields": [],
           "name": "quote",
           "op": {
             "list": {
+              "input": "data",
               "name": "list",
               "points": [
                 {
+                  "active": true,
+                  "args": {},
                   "method": "GET",
                   "orig": "/quotes",
                   "parts": [
                     "quotes"
                   ],
+                  "select": {},
                   "transform": {
                     "req": "`reqdata`",
                     "res": "`body`"
-                  },
-                  "active": true,
-                  "args": {},
-                  "select": {}
+                  }
                 }
-              ],
-              "input": "data"
+              ]
             },
             "load": {
+              "input": "data",
               "name": "load",
               "points": [
                 {
+                  "active": true,
                   "args": {
                     "params": [
                       {
+                        "active": true,
                         "example": 2,
                         "kind": "param",
                         "name": "id",
                         "orig": "count",
                         "reqd": true,
-                        "type": "`$INTEGER`",
-                        "active": true
+                        "type": "`$INTEGER`"
                       }
                     ]
                   },
@@ -113,20 +88,20 @@
                   "transform": {
                     "req": "`reqdata`",
                     "res": "`body`"
-                  },
-                  "active": true
+                  }
                 },
                 {
+                  "active": true,
                   "args": {
                     "params": [
                       {
+                        "active": true,
                         "example": "hate",
                         "kind": "param",
                         "name": "term",
                         "orig": "term",
                         "reqd": true,
-                        "type": "`$STRING`",
-                        "active": true
+                        "type": "`$STRING`"
                       }
                     ]
                   },
@@ -145,11 +120,9 @@
                   "transform": {
                     "req": "`reqdata`",
                     "res": "`body`"
-                  },
-                  "active": true
+                  }
                 }
-              ],
-              "input": "data"
+              ]
             }
           },
           "relations": {
@@ -158,39 +131,37 @@
                 "search"
               ]
             ]
-          },
-          "active": true,
-          "fields": []
+          }
         },
         "schema": {
+          "active": true,
           "alias": {
             "field": {}
           },
+          "fields": [],
           "name": "schema",
           "op": {
             "load": {
+              "input": "data",
               "name": "load",
               "points": [
                 {
+                  "active": true,
+                  "args": {},
                   "method": "GET",
                   "orig": "/schema",
                   "parts": [
                     "schema"
                   ],
+                  "select": {},
                   "transform": {
                     "req": "`reqdata`",
                     "res": "`body`"
-                  },
-                  "active": true,
-                  "args": {},
-                  "select": {}
+                  }
                 }
-              ],
-              "input": "data"
+              ]
             }
           },
-          "active": true,
-          "fields": [],
           "relations": {
             "ancestors": []
           }
@@ -198,9 +169,6 @@
       },
       "feature": {
         "test": {
-          "name": "test",
-          "title": "In-memory mock transport for testing without a live server",
-          "version": "0.0.1",
           "active": true,
           "config": {
             "options": {
@@ -208,6 +176,14 @@
             }
           },
           "hook": {
+            "GetData": {
+              "active": true,
+              "await": false
+            },
+            "GetMatch": {
+              "active": true,
+              "await": false
+            },
             "PostConstruct": {
               "active": true,
               "await": false
@@ -216,25 +192,11 @@
               "active": true,
               "await": false
             },
-            "SetData": {
-              "active": true,
-              "await": false
-            },
-            "GetData": {
-              "active": true,
-              "await": false
-            },
-            "SetMatch": {
-              "active": true
-            },
-            "GetMatch": {
-              "active": true,
+            "PostOperation": {
+              "active": false,
               "await": false
             },
             "PrePoint": {
-              "active": true
-            },
-            "PreSpec": {
               "active": true,
               "await": false
             },
@@ -250,20 +212,32 @@
               "active": true,
               "await": false
             },
+            "PreSpec": {
+              "active": true,
+              "await": false
+            },
             "PreTarget": {
               "active": false,
               "await": false
             },
-            "PostOperation": {
-              "active": false,
+            "SetData": {
+              "active": true,
+              "await": false
+            },
+            "SetMatch": {
+              "active": true,
               "await": false
             }
           },
+          "name": "test",
           "target": {
-            "ts": {
+            "go": {
               "deps": {}
             },
-            "go": {
+            "go-cli": {
+              "deps": {}
+            },
+            "go-mcp": {
               "deps": {}
             },
             "lua": {
@@ -278,23 +252,30 @@
             "rb": {
               "deps": {}
             },
-            "go-cli": {
-              "deps": {}
-            },
-            "go-mcp": {
+            "ts": {
               "deps": {}
             }
-          }
+          },
+          "title": "In-memory mock transport for testing without a live server",
+          "version": "0.0.1"
         }
       },
       "flow": {
         "BasicQuoteFlow": {
+          "active": true,
           "entity": "quote",
+          "key$": "BasicQuoteFlow",
           "kind": "basic",
           "name": "BasicQuoteFlow",
+          "param": {},
           "step": [
             {
+              "active": true,
+              "data": {},
+              "input": {},
+              "match": {},
               "op": "list",
+              "spec": [],
               "valid": [
                 {
                   "apply": "ItemExists",
@@ -302,14 +283,11 @@
                     "ref": "quote_ref01"
                   }
                 }
-              ],
-              "active": true,
-              "match": {},
-              "data": {},
-              "input": {},
-              "spec": []
+              ]
             },
             {
+              "active": true,
+              "data": {},
               "input": {
                 "ref": "quote_ref01",
                 "srcdatavar": "quote_ref01_data",
@@ -319,6 +297,7 @@
                 "id": "quote01"
               },
               "op": "load",
+              "spec": [],
               "valid": [
                 {
                   "apply": "TextFieldMark",
@@ -326,28 +305,29 @@
                     "mark": "Mark01-quote_ref01"
                   }
                 }
-              ],
-              "active": true,
-              "data": {},
-              "spec": []
+              ]
             }
-          ],
-          "key$": "BasicQuoteFlow",
-          "active": true,
-          "param": {}
+          ]
         },
         "BasicSchemaFlow": {
+          "active": true,
           "entity": "schema",
+          "key$": "BasicSchemaFlow",
           "kind": "basic",
           "name": "BasicSchemaFlow",
+          "param": {},
           "step": [
             {
+              "active": true,
+              "data": {},
               "input": {
                 "ref": "schema_ref01",
                 "srcdatavar": "schema_ref01_data",
                 "suffix": "_dt0"
               },
+              "match": {},
               "op": "load",
+              "spec": [],
               "valid": [
                 {
                   "apply": "TextFieldMark",
@@ -355,28 +335,57 @@
                     "mark": "Mark01-schema_ref01"
                   }
                 }
-              ],
-              "active": true,
-              "match": {},
-              "data": {},
-              "spec": []
+              ]
             }
-          ],
-          "key$": "BasicSchemaFlow",
-          "active": true,
-          "param": {}
+          ]
         }
       },
+      "info": {
+        "contact": {
+          "name": "API Documentation",
+          "url": "https://github.com/jamesseanwright/ron-swanson-quotes"
+        },
+        "description": "This API provides a simple way to retrieve quotes from Ron Swanson, a character from the television show Parks and Recreation. It supports different endpoints to fetch a single quote, multiple quotes, or to search for quotes containing specific terms.",
+        "license": {
+          "name": "Apache-2.0",
+          "url": "https://www.apache.org/licenses/LICENSE-2.0"
+        },
+        "servers": [
+          {
+            "description": "Production server",
+            "url": "https://ron-swanson-quotes.herokuapp.com/v2"
+          }
+        ],
+        "title": "Ron Swanson Quotes API",
+        "version": "2.0.0"
+      },
+      "option": {},
       "target": {
-        "go-cli": {
-          "title": "Go CLI",
-          "ext": "go",
+        "go": {
+          "active": true,
           "comment": {
             "line": "//"
           },
+          "deps": {},
+          "ext": "go",
           "module": {
             "name": "ron-swanson-quotes"
           },
+          "name": "go",
+          "srcfeature": false,
+          "title": "Golang"
+        },
+        "go-cli": {
+          "active": true,
+          "comment": {
+            "line": "//"
+          },
+          "deps": {},
+          "ext": "go",
+          "module": {
+            "name": "ron-swanson-quotes"
+          },
+          "name": "go-cli",
           "phase": {
             "entity": {
               "active": false
@@ -391,19 +400,19 @@
               "active": false
             }
           },
-          "deps": {},
-          "name": "go-cli",
-          "active": true
+          "title": "Go CLI"
         },
         "go-mcp": {
-          "title": "Go MCP server",
-          "ext": "go",
+          "active": true,
           "comment": {
             "line": "//"
           },
+          "deps": {},
+          "ext": "go",
           "module": {
             "name": "ron-swanson-quotes"
           },
+          "name": "go-mcp",
           "phase": {
             "entity": {
               "active": false
@@ -418,138 +427,120 @@
               "active": false
             }
           },
-          "deps": {},
-          "name": "go-mcp",
-          "active": true
-        },
-        "ts": {
-          "title": "TypeScript",
-          "ext": "ts",
-          "comment": {
-            "line": "//"
-          },
-          "module": {
-            "name": "ron-swanson-quotes"
-          },
-          "base": "node_modules/@voxgig/sdkgen/project/.sdk",
-          "deps": {
-            "dotenv": {
-              "active": true,
-              "version": "^17.4.2",
-              "kind": "dev"
-            },
-            "typescript": {
-              "active": true,
-              "version": "^5.9.3",
-              "kind": "dev"
-            },
-            "@types/node": {
-              "active": true,
-              "version": "^25.6.0",
-              "kind": "dev"
-            }
-          },
-          "name": "ts",
-          "active": true
-        },
-        "go": {
-          "title": "Golang",
-          "ext": "go",
-          "comment": {
-            "line": "//"
-          },
-          "module": {
-            "name": "ron-swanson-quotes"
-          },
-          "srcfeature": false,
-          "deps": {},
-          "name": "go",
-          "active": true
+          "title": "Go MCP server"
         },
         "lua": {
-          "title": "Lua",
-          "ext": "lua",
+          "active": true,
           "comment": {
             "line": "--"
           },
-          "module": {
-            "name": "ron-swanson-quotes"
-          },
-          "srcfeature": false,
           "deps": {
             "dkjson": {
               "active": true,
-              "version": "2.5",
-              "kind": "prod"
+              "kind": "prod",
+              "version": "2.5"
             }
           },
+          "ext": "lua",
+          "module": {
+            "name": "ron-swanson-quotes"
+          },
           "name": "lua",
-          "active": true
+          "srcfeature": false,
+          "title": "Lua"
         },
         "php": {
-          "title": "PHP",
-          "ext": "php",
+          "active": true,
           "comment": {
             "line": "//"
           },
+          "deps": {},
+          "ext": "php",
           "module": {
             "name": "ron-swanson-quotes"
           },
-          "srcfeature": false,
-          "deps": {},
           "name": "php",
-          "active": true
+          "srcfeature": false,
+          "title": "PHP"
         },
         "py": {
-          "title": "Python",
-          "ext": "py",
+          "active": true,
           "comment": {
             "line": "#"
           },
-          "module": {
-            "name": "ron-swanson-quotes"
-          },
-          "srcfeature": false,
           "deps": {
             "requests": {
               "active": true,
-              "version": "2.33",
-              "kind": "prod"
+              "kind": "prod",
+              "version": "2.33"
             }
           },
-          "name": "py",
-          "active": true
-        },
-        "rb": {
-          "title": "Ruby",
-          "ext": "rb",
-          "comment": {
-            "line": "#"
-          },
+          "ext": "py",
           "module": {
             "name": "ron-swanson-quotes"
           },
+          "name": "py",
           "srcfeature": false,
+          "title": "Python"
+        },
+        "rb": {
+          "active": true,
+          "comment": {
+            "line": "#"
+          },
           "deps": {
-            "voxgig-struct": {
-              "active": true,
-              "version": "0.0.10",
-              "kind": "prod"
-            },
             "json": {
               "active": true,
-              "version": "0",
-              "kind": "prod"
+              "kind": "prod",
+              "version": "0"
+            },
+            "voxgig-struct": {
+              "active": true,
+              "kind": "prod",
+              "version": "0.0.10"
             }
           },
+          "ext": "rb",
+          "module": {
+            "name": "ron-swanson-quotes"
+          },
           "name": "rb",
-          "active": true
+          "srcfeature": false,
+          "title": "Ruby"
+        },
+        "ts": {
+          "active": true,
+          "base": "node_modules/@voxgig/sdkgen/project/.sdk",
+          "comment": {
+            "line": "//"
+          },
+          "deps": {
+            "@types/node": {
+              "active": true,
+              "kind": "dev",
+              "version": "^25.6.0"
+            },
+            "dotenv": {
+              "active": true,
+              "kind": "dev",
+              "version": "^17.4.2"
+            },
+            "typescript": {
+              "active": true,
+              "kind": "dev",
+              "version": "^5.9.3"
+            }
+          },
+          "ext": "ts",
+          "module": {
+            "name": "ron-swanson-quotes"
+          },
+          "name": "ts",
+          "title": "TypeScript"
         }
-      },
-      "option": {}
-    },
-    "def": {
-      "desc": ""
+      }
     }
-  }
+  },
+  "name": "ron-swanson-quotes",
+  "origin": "voxgig-sdk"
 }

@@ -114,6 +114,7 @@ function basicSetup(extra?: any) {
     'RON_SWANSON_QUOTES_TEST_QUOTE_ENTID': idmap,
     'RON_SWANSON_QUOTES_TEST_LIVE': 'FALSE',
     'RON_SWANSON_QUOTES_TEST_EXPLAIN': 'FALSE',
+    'RON_SWANSON_QUOTES_APIKEY': 'NONE',
   })
 
   idmap = env['RON_SWANSON_QUOTES_TEST_QUOTE_ENTID']
@@ -123,6 +124,7 @@ function basicSetup(extra?: any) {
   if (live) {
     client = new RonSwansonQuotesSDK(merge([
       {
+        apikey: env.RON_SWANSON_QUOTES_APIKEY,
       },
       extra
     ]))

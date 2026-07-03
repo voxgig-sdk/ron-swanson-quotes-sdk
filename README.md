@@ -1,21 +1,8 @@
 # RonSwansonQuotes SDK
 
-Fetch random Ron Swanson quotes from Parks and Recreation, with search and batch endpoints
+Ron Swanson Quotes API client, generated from the OpenAPI spec.
 
 > TypeScript, Python, PHP, Golang, Ruby, Lua SDKs, a CLI, an interactive REPL, and an MCP server for AI agents — all generated from one OpenAPI spec by [@voxgig/sdkgen](https://github.com/voxgig/sdkgen).
-
-## About Ron Swanson Quotes API
-
-The Ron Swanson Quotes API is a small public service that returns quotes from the character Ron Swanson in NBC's *Parks and Recreation*. It is maintained (now archived) by [James Wright](https://github.com/jamesseanwright) and hosted on Heroku at `https://ron-swanson-quotes.herokuapp.com/v2`.
-
-What you get from the API:
-
-- A single random quote via `GET /v2/quotes`.
-- A batch of random quotes via `GET /v2/quotes/<count>`.
-- Case-insensitive substring search via `GET /v2/quotes/search/<term>`.
-- The machine-readable OpenAPI 3 specification via `GET /v2/schema`.
-
-Responses are plain JSON arrays of quote strings. No API key or authentication is required, and the service sends `Access-Control-Allow-Origin: *`, so it can be called directly from browsers. The upstream GitHub repository was archived on 19 January 2026 and is no longer accepting changes, though the hosted endpoint remains reachable.
 
 ## Try it
 
@@ -49,29 +36,31 @@ gem install ron-swanson-quotes-sdk
 luarocks install ron-swanson-quotes-sdk
 ```
 
-## 30-second quickstart
+## Quickstart
 
 ### TypeScript
 
 ```ts
 import { RonSwansonQuotesSDK } from 'ron-swanson-quotes'
 
-const client = new RonSwansonQuotesSDK({})
+const client = new RonSwansonQuotesSDK({
+  apikey: process.env.RON-SWANSON-QUOTES_APIKEY,
+})
 
 // List all quotes
 const quotes = await client.Quote().list()
+console.log(quotes.data)
 ```
 
-See the [TypeScript README](ts/README.md) for the
-full guide, or scroll down for the same example in other languages.
+See the [TypeScript README](ts/README.md) for the full guide.
 
-## What's in the box
+## Surfaces
 
-| Surface | Use it for | Path |
-| --- | --- | --- |
-| **SDK** (TypeScript, Python, PHP, Golang, Ruby, Lua) | App integration | `ts/` `py/` `php/` `go/` `rb/` `lua/` |
-| **CLI** | Scripts, CI, ops, one-off API calls | `go-cli/` |
-| **MCP server** | AI agents (Claude, Cursor, Cline) | `go-mcp/` |
+| Surface | Path |
+| --- | --- |
+| **SDK** (TypeScript, Python, PHP, Golang, Ruby, Lua) | `ts/` `py/` `php/` `go/` `rb/` `lua/` |
+| **CLI** | `go-cli/` |
+| **MCP server** | `go-mcp/` |
 
 ## Use it from an AI agent (MCP)
 
@@ -101,8 +90,8 @@ The API exposes 2 entities:
 
 | Entity | Description | API path |
 | --- | --- | --- |
-| **Quote** | A single line of dialogue attributed to Ron Swanson, returned as a JSON string; available via `GET /v2/quotes`, `GET /v2/quotes/<count>`, and `GET /v2/quotes/search/<term>`. | `/quotes` |
-| **Schema** | The OpenAPI 3 description of the API itself, served as JSON at `GET /v2/schema`. | `/schema` |
+| **Quote** |  | `/quotes` |
+| **Schema** |  | `/schema` |
 
 Each entity supports the following operations where available: **load**,
 **list**, **create**, **update**, and **remove**.
@@ -112,17 +101,20 @@ Each entity supports the following operations where available: **load**,
 ### Python
 
 ```python
+import os
 from ronswansonquotes_sdk import RonSwansonQuotesSDK
 
-client = RonSwansonQuotesSDK({})
+client = RonSwansonQuotesSDK({
+    "apikey": os.environ.get("RON-SWANSON-QUOTES_APIKEY"),
+})
 
 # List all quotes
-quotes, err = client.Quote(None).list(None, None)
+quotes, err = client.Quote().list()
+print(quotes)
 
 # Load a specific quote
-quote, err = client.Quote(None).load(
-    {"id": "example_id"}, None
-)
+quote, err = client.Quote().load({"id": "example_id"})
+print(quote)
 ```
 
 ### PHP
@@ -131,15 +123,17 @@ quote, err = client.Quote(None).load(
 <?php
 require_once 'ronswansonquotes_sdk.php';
 
-$client = new RonSwansonQuotesSDK([]);
+$client = new RonSwansonQuotesSDK([
+    "apikey" => getenv("RON-SWANSON-QUOTES_APIKEY"),
+]);
 
 // List all quotes
-[$quotes, $err] = $client->Quote(null)->list(null, null);
+[$quotes, $err] = $client->Quote()->list();
+print_r($quotes);
 
 // Load a specific quote
-[$quote, $err] = $client->Quote(null)->load(
-    ["id" => "example_id"], null
-);
+[$quote, $err] = $client->Quote()->load(["id" => "example_id"]);
+print_r($quote);
 ```
 
 ### Golang
@@ -147,10 +141,13 @@ $client = new RonSwansonQuotesSDK([]);
 ```go
 import sdk "github.com/voxgig-sdk/ron-swanson-quotes-sdk/go"
 
-client := sdk.NewRonSwansonQuotesSDK(map[string]any{})
+client := sdk.NewRonSwansonQuotesSDK(map[string]any{
+    "apikey": os.Getenv("RON-SWANSON-QUOTES_APIKEY"),
+})
 
 // List all quotes
 quotes, err := client.Quote(nil).List(nil, nil)
+fmt.Println(quotes)
 ```
 
 ### Ruby
@@ -158,15 +155,17 @@ quotes, err := client.Quote(nil).List(nil, nil)
 ```ruby
 require_relative "RonSwansonQuotes_sdk"
 
-client = RonSwansonQuotesSDK.new({})
+client = RonSwansonQuotesSDK.new({
+  "apikey" => ENV["RON-SWANSON-QUOTES_APIKEY"],
+})
 
 # List all quotes
-quotes, err = client.Quote(nil).list(nil, nil)
+quotes, err = client.Quote().list
+puts quotes
 
 # Load a specific quote
-quote, err = client.Quote(nil).load(
-  { "id" => "example_id" }, nil
-)
+quote, err = client.Quote().load({ "id" => "example_id" })
+puts quote
 ```
 
 ### Lua
@@ -174,15 +173,17 @@ quote, err = client.Quote(nil).load(
 ```lua
 local sdk = require("ron-swanson-quotes_sdk")
 
-local client = sdk.new({})
+local client = sdk.new({
+  apikey = os.getenv("RON-SWANSON-QUOTES_APIKEY"),
+})
 
 -- List all quotes
-local quotes, err = client:Quote(nil):list(nil, nil)
+local quotes, err = client:Quote():list()
+print(quotes)
 
 -- Load a specific quote
-local quote, err = client:Quote(nil):load(
-  { id = "example_id" }, nil
-)
+local quote, err = client:Quote():load({ id = "example_id" })
+print(quote)
 ```
 
 ## Unit testing in offline mode
@@ -201,25 +202,21 @@ const result = await client.Quote().load({ id: 'test01' })
 ### Python
 
 ```python
-client = RonSwansonQuotesSDK.test(None, None)
-result, err = client.Quote(None).load(
-    {"id": "test01"}, None
-)
+client = RonSwansonQuotesSDK.test()
+result, err = client.Quote().load({"id": "test01"})
 ```
 
 ### PHP
 
 ```php
-$client = RonSwansonQuotesSDK::test(null, null);
-[$result, $err] = $client->Quote(null)->load(
-    ["id" => "test01"], null
-);
+$client = RonSwansonQuotesSDK::test();
+[$result, $err] = $client->Quote()->load(["id" => "test01"]);
 ```
 
 ### Golang
 
 ```go
-client := sdk.TestSDK(nil, nil)
+client := sdk.Test()
 result, err := client.Quote(nil).Load(
     map[string]any{"id": "test01"}, nil,
 )
@@ -228,19 +225,15 @@ result, err := client.Quote(nil).Load(
 ### Ruby
 
 ```ruby
-client = RonSwansonQuotesSDK.test(nil, nil)
-result, err = client.Quote(nil).load(
-  { "id" => "test01" }, nil
-)
+client = RonSwansonQuotesSDK.test
+result, err = client.Quote().load({ "id" => "test01" })
 ```
 
 ### Lua
 
 ```lua
-local client = sdk.test(nil, nil)
-local result, err = client:Quote(nil):load(
-  { id = "test01" }, nil
-)
+local client = sdk.test()
+local result, err = client:Quote():load({ id = "test01" })
 ```
 
 ## How it works
@@ -344,15 +337,6 @@ local result, err = client:direct({
 - [Golang](go/README.md)
 - [Ruby](rb/README.md)
 - [Lua](lua/README.md)
-
-## Using the Ron Swanson Quotes API
-
-- Upstream: [https://github.com/jamesseanwright/ron-swanson-quotes](https://github.com/jamesseanwright/ron-swanson-quotes)
-
-- Licensed under the [Apache License 2.0](https://www.apache.org/licenses/LICENSE-2.0).
-- Quoted dialogue is from the NBC television series *Parks and Recreation*; the API author does not claim ownership of the underlying quotes.
-- Attribution to the upstream project ([jamesseanwright/ron-swanson-quotes](https://github.com/jamesseanwright/ron-swanson-quotes)) is appreciated when redistributing.
-- The upstream repository was archived in January 2026 and is now read-only.
 
 ---
 

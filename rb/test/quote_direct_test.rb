@@ -114,12 +114,14 @@ def quote_direct_setup(mockres)
   env = Runner.env_override({
     "RONSWANSONQUOTES_TEST_QUOTE_ENTID" => {},
     "RONSWANSONQUOTES_TEST_LIVE" => "FALSE",
+    "RONSWANSONQUOTES_APIKEY" => "NONE",
   })
 
   live = env["RONSWANSONQUOTES_TEST_LIVE"] == "TRUE"
 
   if live
     merged_opts = {
+      "apikey" => env["RONSWANSONQUOTES_APIKEY"],
     }
     client = RonSwansonQuotesSDK.new(merged_opts)
     return {

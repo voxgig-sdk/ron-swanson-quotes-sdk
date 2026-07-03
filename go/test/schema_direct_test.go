@@ -99,12 +99,14 @@ func schemaDirectSetup(mockres any) *schemaDirectSetupResult {
 	env := envOverride(map[string]any{
 		"RONSWANSONQUOTES_TEST_SCHEMA_ENTID": map[string]any{},
 		"RONSWANSONQUOTES_TEST_LIVE":    "FALSE",
+		"RONSWANSONQUOTES_APIKEY":       "NONE",
 	})
 
 	live := env["RONSWANSONQUOTES_TEST_LIVE"] == "TRUE"
 
 	if live {
 		mergedOpts := map[string]any{
+			"apikey": env["RONSWANSONQUOTES_APIKEY"],
 		}
 		client := sdk.NewRonSwansonQuotesSDK(mergedOpts)
 

@@ -117,6 +117,7 @@ func schemaBasicSetup(extra map[string]any) *entityTestSetup {
 		"RONSWANSONQUOTES_TEST_SCHEMA_ENTID": idmap,
 		"RONSWANSONQUOTES_TEST_LIVE":      "FALSE",
 		"RONSWANSONQUOTES_TEST_EXPLAIN":   "FALSE",
+		"RONSWANSONQUOTES_APIKEY":         "NONE",
 	})
 
 	idmapResolved := core.ToMapAny(env["RONSWANSONQUOTES_TEST_SCHEMA_ENTID"])
@@ -127,6 +128,7 @@ func schemaBasicSetup(extra map[string]any) *entityTestSetup {
 	if env["RONSWANSONQUOTES_TEST_LIVE"] == "TRUE" {
 		mergedOpts := vs.Merge([]any{
 			map[string]any{
+				"apikey": env["RONSWANSONQUOTES_APIKEY"],
 			},
 			extra,
 		})
