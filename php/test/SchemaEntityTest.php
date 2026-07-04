@@ -49,8 +49,7 @@ class SchemaEntityTest extends TestCase
         // LOAD
         $schema_ref01_ent = $client->Schema(null);
         $schema_ref01_match_dt0 = [];
-        [$schema_ref01_data_dt0_loaded, $err] = $schema_ref01_ent->load($schema_ref01_match_dt0, null);
-        $this->assertNull($err);
+        $schema_ref01_data_dt0_loaded = $schema_ref01_ent->load($schema_ref01_match_dt0, null);
         $this->assertNotNull($schema_ref01_data_dt0_loaded);
 
     }
@@ -85,7 +84,6 @@ function schema_basic_setup($extra)
         "RONSWANSONQUOTES_TEST_SCHEMA_ENTID" => $idmap,
         "RONSWANSONQUOTES_TEST_LIVE" => "FALSE",
         "RONSWANSONQUOTES_TEST_EXPLAIN" => "FALSE",
-        "RONSWANSONQUOTES_APIKEY" => "NONE",
     ]);
 
     $idmap_resolved = Helpers::to_map(
@@ -97,7 +95,6 @@ function schema_basic_setup($extra)
     if ($env["RONSWANSONQUOTES_TEST_LIVE"] === "TRUE") {
         $merged_opts = Vs::merge([
             [
-                "apikey" => $env["RONSWANSONQUOTES_APIKEY"],
             ],
             $extra ?? [],
         ]);

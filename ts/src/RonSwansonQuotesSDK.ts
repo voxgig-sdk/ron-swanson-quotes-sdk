@@ -3,6 +3,8 @@
 import { QuoteEntity } from './entity/QuoteEntity'
 import { SchemaEntity } from './entity/SchemaEntity'
 
+export type * from './RonSwansonQuotesTypes'
+
 
 import { inspect } from 'node:util'
 
@@ -203,12 +205,28 @@ class RonSwansonQuotesSDK {
 
 
 
+  _quote?: QuoteEntity
+
+  // Idiomatic facade: `client.quote.list()` / `client.quote.load({ id })`.
+  get quote(): QuoteEntity {
+    return (this._quote ??= new QuoteEntity(this, undefined))
+  }
+
+  /** @deprecated Use `client.quote` instead. */
   Quote(data?: any) {
     const self = this
     return new QuoteEntity(self,data)
   }
 
 
+  _schema?: SchemaEntity
+
+  // Idiomatic facade: `client.schema.list()` / `client.schema.load({ id })`.
+  get schema(): SchemaEntity {
+    return (this._schema ??= new SchemaEntity(this, undefined))
+  }
+
+  /** @deprecated Use `client.schema` instead. */
   Schema(data?: any) {
     const self = this
     return new SchemaEntity(self,data)

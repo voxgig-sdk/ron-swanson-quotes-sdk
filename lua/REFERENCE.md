@@ -19,7 +19,6 @@ Create a new SDK client instance.
 | Name | Type | Description |
 | --- | --- | --- |
 | `options` | `table` | SDK configuration options. |
-| `options.apikey` | `string` | API key for authentication. |
 | `options.base` | `string` | Base URL for API requests. |
 | `options.prefix` | `string` | URL prefix appended after base. |
 | `options.suffix` | `string` | URL suffix appended after path. |
@@ -88,7 +87,7 @@ same parameters as `direct()`.
 ## QuoteEntity
 
 ```lua
-local quote = client:Quote(nil)
+local quote = client:quote(nil)
 ```
 
 ### Operations
@@ -98,7 +97,7 @@ local quote = client:Quote(nil)
 List entities matching the given criteria. Returns an array.
 
 ```lua
-local results, err = client:Quote():list()
+local results, err = client:quote():list()
 ```
 
 #### `load(reqmatch, ctrl) -> any, err`
@@ -106,7 +105,7 @@ local results, err = client:Quote():list()
 Load a single entity matching the given criteria.
 
 ```lua
-local result, err = client:Quote():load({ id = "quote_id" })
+local result, err = client:quote():load({ id = "quote_id" })
 ```
 
 ### Common Methods
@@ -142,7 +141,7 @@ Return the entity name.
 ## SchemaEntity
 
 ```lua
-local schema = client:Schema(nil)
+local schema = client:schema(nil)
 ```
 
 ### Operations
@@ -152,7 +151,7 @@ local schema = client:Schema(nil)
 Load a single entity matching the given criteria.
 
 ```lua
-local result, err = client:Schema():load({ id = "schema_id" })
+local result, err = client:schema():load({ id = "schema_id" })
 ```
 
 ### Common Methods

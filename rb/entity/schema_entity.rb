@@ -45,6 +45,7 @@ class SchemaEntity
     end
   end
 
+  # @return [Schema, Hash] the current Schema data
   def data_get
     @_utility.feature_hook.call(@_entctx, "GetData")
     VoxgigStruct.clone(@_data)
@@ -57,12 +58,18 @@ class SchemaEntity
     end
   end
 
+  # @return [Hash] the current match filter (any subset of Schema fields)
   def match_get
     @_utility.feature_hook.call(@_entctx, "GetMatch")
     VoxgigStruct.clone(@_match)
   end
 
   
+  # Load a single Schema.
+  #
+  # @param reqmatch [SchemaLoadMatch, Hash, nil] match criteria (id/query fields)
+  # @param ctrl [Object, nil] optional per-call control
+  # @return [Schema, Hash] the loaded Schema; raises RonSwansonQuotesError on failure
   def load(reqmatch, ctrl = nil)
     utility = @_utility
     ctx = utility.make_context.call({

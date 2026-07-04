@@ -91,7 +91,6 @@ function schema_basic_setup(extra)
     ["RONSWANSONQUOTES_TEST_SCHEMA_ENTID"] = idmap,
     ["RONSWANSONQUOTES_TEST_LIVE"] = "FALSE",
     ["RONSWANSONQUOTES_TEST_EXPLAIN"] = "FALSE",
-    ["RONSWANSONQUOTES_APIKEY"] = "NONE",
   })
 
   local idmap_resolved = helpers.to_map(
@@ -103,7 +102,6 @@ function schema_basic_setup(extra)
   if env["RONSWANSONQUOTES_TEST_LIVE"] == "TRUE" then
     local merged_opts = vs.merge({
       {
-        apikey = env["RONSWANSONQUOTES_APIKEY"],
       },
       extra or {},
     })

@@ -15,9 +15,6 @@ def make_config():
         },
         "options": {
             "base": "https://ron-swanson-quotes.herokuapp.com/v2",
-            "auth": {
-                "prefix": "Bearer",
-            },
             "headers": {
         "content-type": "application/json",
       },
@@ -69,6 +66,7 @@ def make_config():
                       "orig": "count",
                       "reqd": True,
                       "type": "`$INTEGER`",
+                      "index$": 0,
                     },
                   ],
                 },
@@ -106,6 +104,7 @@ def make_config():
                       "orig": "term",
                       "reqd": True,
                       "type": "`$STRING`",
+                      "index$": 0,
                     },
                   ],
                 },

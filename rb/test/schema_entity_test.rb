@@ -42,8 +42,7 @@ class SchemaEntityTest < Minitest::Test
     # LOAD
     schema_ref01_ent = client.Schema(nil)
     schema_ref01_match_dt0 = {}
-    schema_ref01_data_dt0_loaded, err = schema_ref01_ent.load(schema_ref01_match_dt0, nil)
-    assert_nil err
+    schema_ref01_data_dt0_loaded = schema_ref01_ent.load(schema_ref01_match_dt0, nil)
     assert !schema_ref01_data_dt0_loaded.nil?
 
   end
@@ -82,7 +81,6 @@ def schema_basic_setup(extra)
     "RONSWANSONQUOTES_TEST_SCHEMA_ENTID" => idmap,
     "RONSWANSONQUOTES_TEST_LIVE" => "FALSE",
     "RONSWANSONQUOTES_TEST_EXPLAIN" => "FALSE",
-    "RONSWANSONQUOTES_APIKEY" => "NONE",
   })
 
   idmap_resolved = Helpers.to_map(
@@ -94,7 +92,6 @@ def schema_basic_setup(extra)
   if env["RONSWANSONQUOTES_TEST_LIVE"] == "TRUE"
     merged_opts = Vs.merge([
       {
-        "apikey" => env["RONSWANSONQUOTES_APIKEY"],
       },
       extra || {},
     ])

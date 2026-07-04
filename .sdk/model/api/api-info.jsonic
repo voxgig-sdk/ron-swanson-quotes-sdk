@@ -4,6 +4,7 @@
 main: {
   kit: {
     info: {
+      auth: false
       contact: {
         name: "API Documentation"
         url: "https://github.com/jamesseanwright/ron-swanson-quotes"

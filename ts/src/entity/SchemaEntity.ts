@@ -14,9 +14,13 @@ import type {
   Control,
 } from '../types'
 
+import type {
+  Schema,
+  SchemaLoadMatch,
+} from '../RonSwansonQuotesTypes'
 
 // TODO: needs Entity superclass
-class SchemaEntity extends RonSwansonQuotesEntityBase {
+class SchemaEntity extends RonSwansonQuotesEntityBase<Schema> {
 
   constructor(client: RonSwansonQuotesSDK, entopts: any) {
     super(client, entopts)
@@ -32,7 +36,7 @@ class SchemaEntity extends RonSwansonQuotesEntityBase {
 
 
 
-  async load(this: any, reqmatch?: any, ctrl?: Control) {
+  async load(this: any, reqmatch?: SchemaLoadMatch, ctrl?: Control): Promise<Schema> {
 
     const utility = this._utility
 
@@ -136,7 +140,9 @@ class SchemaEntity extends RonSwansonQuotesEntityBase {
         throw err
       }
       else {
-        return undefined
+        // Off-happy-path (throw disabled): typed as any so the method's
+        // Promise<Schema> return stays clean under strict null checks.
+        return undefined as any
       }
     }
   }

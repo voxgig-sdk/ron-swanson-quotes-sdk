@@ -244,12 +244,38 @@ end
 
 
 
+-- Idiomatic facade: client:quote():list() / client:quote():load({ id = ... })
+function RonSwansonQuotesSDK:quote(data)
+  local EntityMod = require("entity.quote_entity")
+  if data == nil then
+    if self._quote == nil then
+      self._quote = EntityMod.new(self, nil)
+    end
+    return self._quote
+  end
+  return EntityMod.new(self, data)
+end
+
+-- Deprecated: use client:quote() instead.
 function RonSwansonQuotesSDK:Quote(data)
   local EntityMod = require("entity.quote_entity")
   return EntityMod.new(self, data)
 end
 
 
+-- Idiomatic facade: client:schema():list() / client:schema():load({ id = ... })
+function RonSwansonQuotesSDK:schema(data)
+  local EntityMod = require("entity.schema_entity")
+  if data == nil then
+    if self._schema == nil then
+      self._schema = EntityMod.new(self, nil)
+    end
+    return self._schema
+  end
+  return EntityMod.new(self, data)
+end
+
+-- Deprecated: use client:schema() instead.
 function RonSwansonQuotesSDK:Schema(data)
   local EntityMod = require("entity.schema_entity")
   return EntityMod.new(self, data)

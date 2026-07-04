@@ -20,9 +20,6 @@ class RonSwansonQuotesConfig
             ],
             "options" => [
                 "base" => "https://ron-swanson-quotes.herokuapp.com/v2",
-                "auth" => [
-                    "prefix" => "Bearer",
-                ],
                 "headers" => [
           'content-type' => 'application/json',
         ],
@@ -74,6 +71,7 @@ class RonSwansonQuotesConfig
                         'orig' => 'count',
                         'reqd' => true,
                         'type' => '`$INTEGER`',
+                        'index$' => 0,
                       ],
                     ],
                   ],
@@ -111,6 +109,7 @@ class RonSwansonQuotesConfig
                         'orig' => 'term',
                         'reqd' => true,
                         'type' => '`$STRING`',
+                        'index$' => 0,
                       ],
                     ],
                   ],

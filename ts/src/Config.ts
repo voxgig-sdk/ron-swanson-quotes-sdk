@@ -38,10 +38,6 @@ class Config {
   options = {
     base: 'https://ron-swanson-quotes.herokuapp.com/v2',
 
-    auth: {
-      prefix: 'Bearer',
-    },
-
     headers: {
       "content-type": "application/json"
     },
@@ -100,7 +96,8 @@ class Config {
                     "name": "id",
                     "orig": "count",
                     "reqd": true,
-                    "type": "`$INTEGER`"
+                    "type": "`$INTEGER`",
+                    "index$": 0
                   }
                 ]
               },
@@ -137,7 +134,8 @@ class Config {
                     "name": "term",
                     "orig": "term",
                     "reqd": true,
-                    "type": "`$STRING`"
+                    "type": "`$STRING`",
+                    "index$": 0
                   }
                 ]
               },

@@ -245,11 +245,17 @@ func (sdk *RonSwansonQuotesSDK) Direct(fetchargs map[string]any) (map[string]any
 }
 
 
+// Quote returns a Quote entity bound to this client.
+// Idiomatic usage: client.Quote(nil).List(nil, nil) or
+// client.Quote(nil).Load(map[string]any{"id": ...}, nil).
 func (sdk *RonSwansonQuotesSDK) Quote(data map[string]any) RonSwansonQuotesEntity {
 	return NewQuoteEntityFunc(sdk, data)
 }
 
 
+// Schema returns a Schema entity bound to this client.
+// Idiomatic usage: client.Schema(nil).List(nil, nil) or
+// client.Schema(nil).Load(map[string]any{"id": ...}, nil).
 func (sdk *RonSwansonQuotesSDK) Schema(data map[string]any) RonSwansonQuotesEntity {
 	return NewSchemaEntityFunc(sdk, data)
 }

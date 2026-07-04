@@ -79,6 +79,10 @@ end
 
 
 
+---@param reqmatch SchemaLoadMatch
+---@param ctrl? table
+---@return Schema
+---@return string? err
 function SchemaEntity:load(reqmatch, ctrl)
   local utility = self._utility
   local ctx = utility.make_context({
