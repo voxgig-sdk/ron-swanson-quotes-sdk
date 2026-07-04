@@ -220,41 +220,21 @@ class RonSwansonQuotesSDK:
         }
 
 
-    @property
-    def quote(self):
-        """Idiomatic facade: client.quote.list() / client.quote.load({"id": ...})."""
-        from entity.quote_entity import QuoteEntity
-        cached = getattr(self, "_quote", None)
-        if cached is None:
-            cached = QuoteEntity(self, None)
-            self._quote = cached
-        return cached
-
-    def Quote(self, data=None):
-        # Deprecated: use client.quote instead.
+    def Quote(self, data=None) -> "QuoteEntity":
+        """Entity factory: client.Quote().list({}) / client.Quote().load({"id": ...})."""
         from entity.quote_entity import QuoteEntity
         return QuoteEntity(self, data)
 
 
-    @property
-    def schema(self):
-        """Idiomatic facade: client.schema.list() / client.schema.load({"id": ...})."""
-        from entity.schema_entity import SchemaEntity
-        cached = getattr(self, "_schema", None)
-        if cached is None:
-            cached = SchemaEntity(self, None)
-            self._schema = cached
-        return cached
-
-    def Schema(self, data=None):
-        # Deprecated: use client.schema instead.
+    def Schema(self, data=None) -> "SchemaEntity":
+        """Entity factory: client.Schema().list({}) / client.Schema().load({"id": ...})."""
         from entity.schema_entity import SchemaEntity
         return SchemaEntity(self, data)
 
 
 
     @classmethod
-    def test(cls, testopts=None, sdkopts=None):
+    def test(cls, testopts=None, sdkopts=None) -> "RonSwansonQuotesSDK":
         if sdkopts is None:
             sdkopts = {}
         sdkopts = vs.clone(sdkopts)
@@ -274,3 +254,10 @@ class RonSwansonQuotesSDK:
         sdk.mode = "test"
 
         return sdk
+
+
+from typing import TYPE_CHECKING
+
+if TYPE_CHECKING:
+    from entity.quote_entity import QuoteEntity
+    from entity.schema_entity import SchemaEntity

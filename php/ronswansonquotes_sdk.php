@@ -233,10 +233,10 @@ class RonSwansonQuotesSDK
 
     private $_quote = null;
 
-    // Idiomatic facade: $client->quote()->list() / ->load(["id" => ...]).
-    // Also serves the deprecated PascalCase alias Quote() (PHP method
-    // names are case-insensitive).
-    public function quote($data = null)
+    // Canonical facade: $client->Quote()->list() / ->load(["id" => ...]).
+    // PHP method names are case-insensitive, so lowercase $client->quote()
+    // resolves here too.
+    public function Quote($data = null)
     {
         require_once __DIR__ . '/entity/quote_entity.php';
         if ($data === null) {
@@ -251,10 +251,10 @@ class RonSwansonQuotesSDK
 
     private $_schema = null;
 
-    // Idiomatic facade: $client->schema()->list() / ->load(["id" => ...]).
-    // Also serves the deprecated PascalCase alias Schema() (PHP method
-    // names are case-insensitive).
-    public function schema($data = null)
+    // Canonical facade: $client->Schema()->list() / ->load(["id" => ...]).
+    // PHP method names are case-insensitive, so lowercase $client->schema()
+    // resolves here too.
+    public function Schema($data = null)
     {
         require_once __DIR__ . '/entity/schema_entity.php';
         if ($data === null) {

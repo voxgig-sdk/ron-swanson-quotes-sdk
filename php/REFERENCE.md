@@ -89,7 +89,7 @@ Prepare a fetch definition without sending the request. Returns the
 ## QuoteEntity
 
 ```php
-$quote = $client->quote();
+$quote = $client->Quote();
 ```
 
 ### Operations
@@ -99,7 +99,7 @@ $quote = $client->quote();
 List entities matching the given criteria. Returns an array. Throws on error.
 
 ```php
-$results = $client->quote()->list([]);
+$results = $client->Quote()->list([]);
 ```
 
 #### `load(array $reqmatch, ?array $ctrl = null): mixed`
@@ -107,7 +107,7 @@ $results = $client->quote()->list([]);
 Load a single entity matching the given criteria. Throws on error.
 
 ```php
-$result = $client->quote()->load(["id" => "quote_id"]);
+$result = $client->Quote()->load(["id" => "quote_id"]);
 ```
 
 ### Common Methods
@@ -143,7 +143,7 @@ Return the entity name.
 ## SchemaEntity
 
 ```php
-$schema = $client->schema();
+$schema = $client->Schema();
 ```
 
 ### Operations
@@ -153,7 +153,7 @@ $schema = $client->schema();
 Load a single entity matching the given criteria. Throws on error.
 
 ```php
-$result = $client->schema()->load(["id" => "schema_id"]);
+$result = $client->Schema()->load(["id" => "schema_id"]);
 ```
 
 ### Common Methods

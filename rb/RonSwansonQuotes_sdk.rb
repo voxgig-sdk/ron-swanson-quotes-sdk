@@ -208,26 +208,14 @@ class RonSwansonQuotesSDK
   end
 
 
-  # Idiomatic facade: client.quote.list / client.quote.load({ "id" => ... })
-  def quote
-    require_relative 'entity/quote_entity'
-    @quote ||= QuoteEntity.new(self, nil)
-  end
-
-  # Deprecated: use client.quote instead.
+  # Canonical facade: client.Quote.list / client.Quote.load({ "id" => ... })
   def Quote(data = nil)
     require_relative 'entity/quote_entity'
     QuoteEntity.new(self, data)
   end
 
 
-  # Idiomatic facade: client.schema.list / client.schema.load({ "id" => ... })
-  def schema
-    require_relative 'entity/schema_entity'
-    @schema ||= SchemaEntity.new(self, nil)
-  end
-
-  # Deprecated: use client.schema instead.
+  # Canonical facade: client.Schema.list / client.Schema.load({ "id" => ... })
   def Schema(data = nil)
     require_relative 'entity/schema_entity'
     SchemaEntity.new(self, data)

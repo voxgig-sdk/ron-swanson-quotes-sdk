@@ -90,7 +90,7 @@ same parameters as `direct()`. Raises on error.
 ## QuoteEntity
 
 ```ruby
-quote = client.quote
+quote = client.Quote
 ```
 
 ### Operations
@@ -100,7 +100,7 @@ quote = client.quote
 List entities matching the given criteria. Returns an array. Raises on error.
 
 ```ruby
-results = client.quote.list(nil)
+results = client.Quote.list(nil)
 ```
 
 #### `load(reqmatch, ctrl = nil) -> result`
@@ -108,7 +108,7 @@ results = client.quote.list(nil)
 Load a single entity matching the given criteria. Raises on error.
 
 ```ruby
-result = client.quote.load({ "id" => "quote_id" })
+result = client.Quote.load({ "id" => "quote_id" })
 ```
 
 ### Common Methods
@@ -144,7 +144,7 @@ Return the entity name.
 ## SchemaEntity
 
 ```ruby
-schema = client.schema
+schema = client.Schema
 ```
 
 ### Operations
@@ -154,7 +154,7 @@ schema = client.schema
 Load a single entity matching the given criteria. Raises on error.
 
 ```ruby
-result = client.schema.load({ "id" => "schema_id" })
+result = client.Schema.load({ "id" => "schema_id" })
 ```
 
 ### Common Methods

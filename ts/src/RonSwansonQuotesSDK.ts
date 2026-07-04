@@ -205,28 +205,14 @@ class RonSwansonQuotesSDK {
 
 
 
-  _quote?: QuoteEntity
-
-  // Idiomatic facade: `client.quote.list()` / `client.quote.load({ id })`.
-  get quote(): QuoteEntity {
-    return (this._quote ??= new QuoteEntity(this, undefined))
-  }
-
-  /** @deprecated Use `client.quote` instead. */
+  // Entity access: `client.Quote().list()` / `client.Quote().load({ id })`.
   Quote(data?: any) {
     const self = this
     return new QuoteEntity(self,data)
   }
 
 
-  _schema?: SchemaEntity
-
-  // Idiomatic facade: `client.schema.list()` / `client.schema.load({ id })`.
-  get schema(): SchemaEntity {
-    return (this._schema ??= new SchemaEntity(this, undefined))
-  }
-
-  /** @deprecated Use `client.schema` instead. */
+  // Entity access: `client.Schema().list()` / `client.Schema().load({ id })`.
   Schema(data?: any) {
     const self = this
     return new SchemaEntity(self,data)

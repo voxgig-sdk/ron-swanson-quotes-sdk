@@ -121,7 +121,7 @@ Alias for `RonSwansonQuotesSDK.test()`.
 ## QuoteEntity
 
 ```ts
-const quote = client.quote
+const quote = client.Quote()
 ```
 
 ### Operations
@@ -131,7 +131,7 @@ const quote = client.quote
 List entities matching the given criteria. Returns an array.
 
 ```ts
-const results = await client.quote.list()
+const results = await client.Quote().list()
 ```
 
 #### `load(match: object, ctrl?: object)`
@@ -139,7 +139,7 @@ const results = await client.quote.list()
 Load a single entity matching the given criteria.
 
 ```ts
-const result = await client.quote.load({ id: 'quote_id' })
+const result = await client.Quote().load({ id: 'quote_id' })
 ```
 
 ### Common Methods
@@ -173,7 +173,7 @@ Return a copy of the entity options.
 ## SchemaEntity
 
 ```ts
-const schema = client.schema
+const schema = client.Schema()
 ```
 
 ### Operations
@@ -183,7 +183,7 @@ const schema = client.schema
 Load a single entity matching the given criteria.
 
 ```ts
-const result = await client.schema.load({ id: 'schema_id' })
+const result = await client.Schema().load({ id: 'schema_id' })
 ```
 
 ### Common Methods

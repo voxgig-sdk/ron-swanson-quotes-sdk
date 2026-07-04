@@ -244,8 +244,9 @@ end
 
 
 
--- Idiomatic facade: client:quote():list() / client:quote():load({ id = ... })
-function RonSwansonQuotesSDK:quote(data)
+-- Idiomatic facade: client:Quote():list() / client:Quote():load({ id = ... })
+-- Entity access is capitalised (PascalCase) for parity with the other SDKs.
+function RonSwansonQuotesSDK:Quote(data)
   local EntityMod = require("entity.quote_entity")
   if data == nil then
     if self._quote == nil then
@@ -256,15 +257,10 @@ function RonSwansonQuotesSDK:quote(data)
   return EntityMod.new(self, data)
 end
 
--- Deprecated: use client:quote() instead.
-function RonSwansonQuotesSDK:Quote(data)
-  local EntityMod = require("entity.quote_entity")
-  return EntityMod.new(self, data)
-end
 
-
--- Idiomatic facade: client:schema():list() / client:schema():load({ id = ... })
-function RonSwansonQuotesSDK:schema(data)
+-- Idiomatic facade: client:Schema():list() / client:Schema():load({ id = ... })
+-- Entity access is capitalised (PascalCase) for parity with the other SDKs.
+function RonSwansonQuotesSDK:Schema(data)
   local EntityMod = require("entity.schema_entity")
   if data == nil then
     if self._schema == nil then
@@ -272,12 +268,6 @@ function RonSwansonQuotesSDK:schema(data)
     end
     return self._schema
   end
-  return EntityMod.new(self, data)
-end
-
--- Deprecated: use client:schema() instead.
-function RonSwansonQuotesSDK:Schema(data)
-  local EntityMod = require("entity.schema_entity")
   return EntityMod.new(self, data)
 end
 
