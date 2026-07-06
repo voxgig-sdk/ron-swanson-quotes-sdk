@@ -18,8 +18,7 @@ type QuoteLoadMatch struct {
 	Term string `json:"term"`
 }
 
-// QuoteListMatch mirrors the quote fields as an all-optional match
-// filter (Go analog of Partial<Quote>).
+// QuoteListMatch is the typed request payload for Quote.ListTyped.
 type QuoteListMatch struct {
 }
 
@@ -27,8 +26,7 @@ type QuoteListMatch struct {
 type Schema struct {
 }
 
-// SchemaLoadMatch mirrors the schema fields as an all-optional match
-// filter (Go analog of Partial<Schema>).
+// SchemaLoadMatch is the typed request payload for Schema.LoadTyped.
 type SchemaLoadMatch struct {
 }
 

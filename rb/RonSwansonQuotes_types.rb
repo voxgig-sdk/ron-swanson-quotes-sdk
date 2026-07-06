@@ -25,7 +25,7 @@ QuoteLoadMatch = Struct.new(
   keyword_init: true
 )
 
-# Match filter for Quote#list (any subset of Quote fields).
+# Request payload for Quote#list.
 class QuoteListMatch
 end
 
@@ -33,7 +33,7 @@ end
 class Schema
 end
 
-# Match filter for Schema#load (any subset of Schema fields).
+# Request payload for Schema#load.
 class SchemaLoadMatch
 end
 

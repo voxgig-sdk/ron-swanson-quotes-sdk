@@ -24,7 +24,7 @@ class QuoteLoadMatch
     public string $term;
 }
 
-/** Match filter for Quote#list (any subset of Quote fields). */
+/** Request payload for Quote#list. */
 class QuoteListMatch
 {
 }
@@ -34,7 +34,7 @@ class Schema
 {
 }
 
-/** Match filter for Schema#load (any subset of Schema fields). */
+/** Request payload for Schema#load. */
 class SchemaLoadMatch
 {
 }

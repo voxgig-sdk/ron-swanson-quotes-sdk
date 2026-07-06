@@ -139,7 +139,7 @@ const results = await client.Quote().list()
 Load a single entity matching the given criteria.
 
 ```ts
-const result = await client.Quote().load({ id: 'quote_id' })
+const result = await client.Quote().load({ id: 1 })
 ```
 
 ### Common Methods
@@ -183,7 +183,7 @@ const schema = client.Schema()
 Load a single entity matching the given criteria.
 
 ```ts
-const result = await client.Schema().load({ id: 'schema_id' })
+const result = await client.Schema().load()
 ```
 
 ### Common Methods

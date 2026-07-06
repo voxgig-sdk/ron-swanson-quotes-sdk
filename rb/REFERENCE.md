@@ -8,7 +8,7 @@ Complete API reference for the RonSwansonQuotes Ruby SDK.
 ### Constructor
 
 ```ruby
-require_relative 'ron-swanson-quotes_sdk'
+require_relative 'RonSwansonQuotes_sdk'
 
 client = RonSwansonQuotesSDK.new(options)
 ```
@@ -95,12 +95,12 @@ quote = client.Quote
 
 ### Operations
 
-#### `list(reqmatch, ctrl = nil) -> Array`
+#### `list(reqmatch = nil, ctrl = nil) -> Array`
 
-List entities matching the given criteria. Returns an array. Raises on error.
+List entities matching the given criteria (call with no argument to list all). Returns an array. Raises on error.
 
 ```ruby
-results = client.Quote.list(nil)
+results = client.Quote.list
 ```
 
 #### `load(reqmatch, ctrl = nil) -> result`
@@ -154,7 +154,7 @@ schema = client.Schema
 Load a single entity matching the given criteria. Raises on error.
 
 ```ruby
-result = client.Schema.load({ "id" => "schema_id" })
+result = client.Schema.load()
 ```
 
 ### Common Methods

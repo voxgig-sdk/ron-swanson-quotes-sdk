@@ -67,10 +67,12 @@ class SchemaEntity
   
   # Load a single Schema.
   #
-  # @param reqmatch [SchemaLoadMatch, Hash, nil] match criteria (id/query fields)
+  # @param reqmatch [SchemaLoadMatch, Hash, nil] match criteria (id/query fields);
+  #   optional — an entity with no id-like key loads with no match (nil is treated
+  #   as an empty match, so client.Schema.load works with no args).
   # @param ctrl [Object, nil] optional per-call control
   # @return [Schema, Hash] the loaded Schema; raises RonSwansonQuotesError on failure
-  def load(reqmatch, ctrl = nil)
+  def load(reqmatch = nil, ctrl = nil)
     utility = @_utility
     ctx = utility.make_context.call({
       "opname" => "load",

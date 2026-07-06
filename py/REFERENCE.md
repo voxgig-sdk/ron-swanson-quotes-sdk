@@ -8,7 +8,7 @@ Complete API reference for the RonSwansonQuotes Python SDK.
 ### Constructor
 
 ```python
-from ron-swanson-quotes_sdk import RonSwansonQuotesSDK
+from ronswansonquotes_sdk import RonSwansonQuotesSDK
 
 client = RonSwansonQuotesSDK(options)
 ```
@@ -89,12 +89,12 @@ quote = client.Quote()
 
 ### Operations
 
-#### `list(reqmatch, ctrl=None) -> list`
+#### `list(reqmatch=None, ctrl=None) -> list`
 
-List entities matching the given criteria. Returns a list and raises on error.
+List entities matching the given criteria. The match is optional — call `list()` with no argument to list all records. Returns a list and raises on error.
 
 ```python
-results = client.Quote().list({})
+results = client.Quote().list()
 for quote in results:
     print(quote)
 ```
@@ -149,7 +149,7 @@ schema = client.Schema()
 Load a single entity matching the given criteria. Returns the entity data and raises on error.
 
 ```python
-result = client.Schema().load({"id": "schema_id"})
+result = client.Schema().load()
 ```
 
 ### Common Methods

@@ -8,7 +8,7 @@ Complete API reference for the RonSwansonQuotes PHP SDK.
 ### Constructor
 
 ```php
-require_once __DIR__ . '/ron-swanson-quotes_sdk.php';
+require_once __DIR__ . '/ronswansonquotes_sdk.php';
 
 $client = new RonSwansonQuotesSDK($options);
 ```
@@ -49,11 +49,11 @@ Create a new `QuoteEntity` instance. Pass `null` for no initial data.
 
 Create a new `SchemaEntity` instance. Pass `null` for no initial data.
 
-#### `optionsMap(): array`
+#### `options_map(): array`
 
 Return a deep copy of the current SDK options.
 
-#### `getUtility(): ProjectNameUtility`
+#### `get_utility(): RonSwansonQuotesUtility`
 
 Return a copy of the SDK utility object.
 
@@ -94,12 +94,12 @@ $quote = $client->Quote();
 
 ### Operations
 
-#### `list(array $reqmatch, ?array $ctrl = null): mixed`
+#### `list(?array $reqmatch = null, ?array $ctrl = null): mixed`
 
-List entities matching the given criteria. Returns an array. Throws on error.
+List entities matching the given criteria (call with no argument to list all). Returns an array. Throws on error.
 
 ```php
-$results = $client->Quote()->list([]);
+$results = $client->Quote()->list();
 ```
 
 #### `load(array $reqmatch, ?array $ctrl = null): mixed`
@@ -112,19 +112,19 @@ $result = $client->Quote()->load(["id" => "quote_id"]);
 
 ### Common Methods
 
-#### `dataGet(): array`
+#### `data_get(): array`
 
 Get the entity data. Returns a copy of the current data.
 
-#### `dataSet($data): void`
+#### `data_set($data): void`
 
 Set the entity data.
 
-#### `matchGet(): array`
+#### `match_get(): array`
 
 Get the entity match criteria.
 
-#### `matchSet($match): void`
+#### `match_set($match): void`
 
 Set the entity match criteria.
 
@@ -133,7 +133,7 @@ Set the entity match criteria.
 Create a new `QuoteEntity` instance with the same client and
 options.
 
-#### `getName(): string`
+#### `get_name(): string`
 
 Return the entity name.
 
@@ -153,24 +153,24 @@ $schema = $client->Schema();
 Load a single entity matching the given criteria. Throws on error.
 
 ```php
-$result = $client->Schema()->load(["id" => "schema_id"]);
+$result = $client->Schema()->load();
 ```
 
 ### Common Methods
 
-#### `dataGet(): array`
+#### `data_get(): array`
 
 Get the entity data. Returns a copy of the current data.
 
-#### `dataSet($data): void`
+#### `data_set($data): void`
 
 Set the entity data.
 
-#### `matchGet(): array`
+#### `match_get(): array`
 
 Get the entity match criteria.
 
-#### `matchSet($match): void`
+#### `match_set($match): void`
 
 Set the entity match criteria.
 
@@ -179,7 +179,7 @@ Set the entity match criteria.
 Create a new `SchemaEntity` instance with the same client and
 options.
 
-#### `getName(): string`
+#### `get_name(): string`
 
 Return the entity name.
 

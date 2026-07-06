@@ -13,10 +13,12 @@ export interface QuoteLoadMatch {
   term: string
 }
 
-export type QuoteListMatch = Partial<Quote>
+export interface QuoteListMatch {
+}
 
 export interface Schema {
 }
 
-export type SchemaLoadMatch = Partial<Schema>
+export interface SchemaLoadMatch {
+}
 

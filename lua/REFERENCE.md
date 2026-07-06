@@ -151,7 +151,7 @@ local schema = client:Schema(nil)
 Load a single entity matching the given criteria.
 
 ```lua
-local result, err = client:Schema():load({ id = "schema_id" })
+local result, err = client:Schema():load()
 ```
 
 ### Common Methods

@@ -152,7 +152,7 @@ schema := client.Schema(nil)
 Load a single entity matching the given criteria.
 
 ```go
-result, err := client.Schema(nil).Load(map[string]any{"id": "schema_id"}, nil)
+result, err := client.Schema(nil).Load(nil, nil)
 ```
 
 ### Common Methods

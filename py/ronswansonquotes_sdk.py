@@ -221,13 +221,13 @@ class RonSwansonQuotesSDK:
 
 
     def Quote(self, data=None) -> "QuoteEntity":
-        """Entity factory: client.Quote().list({}) / client.Quote().load({"id": ...})."""
+        """Entity factory: client.Quote().list() / client.Quote().load({"id": ...})."""
         from entity.quote_entity import QuoteEntity
         return QuoteEntity(self, data)
 
 
     def Schema(self, data=None) -> "SchemaEntity":
-        """Entity factory: client.Schema().list({}) / client.Schema().load({"id": ...})."""
+        """Entity factory: client.Schema().list() / client.Schema().load({"id": ...})."""
         from entity.schema_entity import SchemaEntity
         return SchemaEntity(self, data)
 
