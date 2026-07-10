@@ -20,9 +20,9 @@ main: {
           url: "https://ron-swanson-quotes.herokuapp.com/v2"
         }
       ]
+      summary: "This API provides a simple way to retrieve quotes from Ron Swanson, a character from the television show Parks and Recreation."
       title: "Ron Swanson Quotes API"
       version: "2.0.0"
+      website: "https://ron-swanson-quotes.herokuapp.com"
     }
   }
-}
-

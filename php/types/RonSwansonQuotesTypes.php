@@ -20,8 +20,8 @@ class Quote
 /** Request payload for Quote#load. */
 class QuoteLoadMatch
 {
-    public int $id;
-    public string $term;
+    public ?int $id = null;
+    public ?string $term = null;
 }
 
 /** Request payload for Quote#list. */

@@ -14,8 +14,8 @@ type Quote struct {
 
 // QuoteLoadMatch is the typed request payload for Quote.LoadTyped.
 type QuoteLoadMatch struct {
-	Id int `json:"id"`
-	Term string `json:"term"`
+	Id *int `json:"id,omitempty"`
+	Term *string `json:"term,omitempty"`
 }
 
 // QuoteListMatch is the typed request payload for Quote.ListTyped.

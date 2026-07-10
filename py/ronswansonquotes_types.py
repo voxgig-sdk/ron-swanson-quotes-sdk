@@ -20,7 +20,7 @@ class Quote(TypedDict):
     pass
 
 
-class QuoteLoadMatch(TypedDict):
+class QuoteLoadMatch(TypedDict, total=False):
     id: int
     term: str
 

@@ -15,10 +15,10 @@ end
 # Request payload for Quote#load.
 #
 # @!attribute [rw] id
-#   @return [Integer]
+#   @return [Integer, nil]
 #
 # @!attribute [rw] term
-#   @return [String]
+#   @return [String, nil]
 QuoteLoadMatch = Struct.new(
   :id,
   :term,
