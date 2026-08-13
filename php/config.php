@@ -40,6 +40,7 @@ class RonSwansonQuotesConfig
                 [
                   'active' => true,
                   'args' => [],
+                  'kind' => 'http',
                   'method' => 'GET',
                   'orig' => '/quotes',
                   'parts' => [
@@ -75,6 +76,7 @@ class RonSwansonQuotesConfig
                       ],
                     ],
                   ],
+                  'kind' => 'http',
                   'method' => 'GET',
                   'orig' => '/quotes/{count}',
                   'parts' => [
@@ -113,6 +115,7 @@ class RonSwansonQuotesConfig
                       ],
                     ],
                   ],
+                  'kind' => 'http',
                   'method' => 'GET',
                   'orig' => '/quotes/search/{term}',
                   'parts' => [
@@ -154,6 +157,7 @@ class RonSwansonQuotesConfig
                 [
                   'active' => true,
                   'args' => [],
+                  'kind' => 'http',
                   'method' => 'GET',
                   'orig' => '/schema',
                   'parts' => [

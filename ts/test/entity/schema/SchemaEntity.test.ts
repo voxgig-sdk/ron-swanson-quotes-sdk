@@ -26,8 +26,8 @@ import {
 describe('SchemaEntity', async () => {
 
   // Per-test live pacing. Delay is read from sdk-test-control.json's
-  // `test.live.delayMs`; only sleeps when RONSWANSONQUOTES_TEST_LIVE=TRUE.
-  afterEach(liveDelay('RONSWANSONQUOTES_TEST_LIVE'))
+  // `test.live.delayMs`; only sleeps when RON_SWANSON_QUOTES_TEST_LIVE=TRUE.
+  afterEach(liveDelay('RON_SWANSON_QUOTES_TEST_LIVE'))
 
   test('instance', async () => {
     const testsdk = RonSwansonQuotesSDK.test()
@@ -62,7 +62,7 @@ describe('SchemaEntity', async () => {
     // LOAD
     const schema_ref01_ent = client.Schema()
     const schema_ref01_match_dt0: any = {}
-    const schema_ref01_data_dt0 = await schema_ref01_ent.load(schema_ref01_match_dt0)
+    const schema_ref01_data_dt0 = (await schema_ref01_ent.load(schema_ref01_match_dt0)).data()
     assert(null != schema_ref01_data_dt0)
 
 

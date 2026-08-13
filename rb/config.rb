@@ -35,6 +35,7 @@ module RonSwansonQuotesConfig
                 {
                   "active" => true,
                   "args" => {},
+                  "kind" => "http",
                   "method" => "GET",
                   "orig" => "/quotes",
                   "parts" => [
@@ -70,6 +71,7 @@ module RonSwansonQuotesConfig
                       },
                     ],
                   },
+                  "kind" => "http",
                   "method" => "GET",
                   "orig" => "/quotes/{count}",
                   "parts" => [
@@ -108,6 +110,7 @@ module RonSwansonQuotesConfig
                       },
                     ],
                   },
+                  "kind" => "http",
                   "method" => "GET",
                   "orig" => "/quotes/search/{term}",
                   "parts" => [
@@ -149,6 +152,7 @@ module RonSwansonQuotesConfig
                 {
                   "active" => true,
                   "args" => {},
+                  "kind" => "http",
                   "method" => "GET",
                   "orig" => "/schema",
                   "parts" => [

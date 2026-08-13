@@ -16,11 +16,11 @@
 import pytest
 
 from projectname_sdk import RonSwansonQuotesSDK
-from core.error import RonSwansonQuotesError
-from core.result import RonSwansonQuotesResult
-from core.response import RonSwansonQuotesResponse
-from core.spec import RonSwansonQuotesSpec
-from feature.base_feature import RonSwansonQuotesBaseFeature
+from projectname_sdk.core.error import RonSwansonQuotesError
+from projectname_sdk.core.result import RonSwansonQuotesResult
+from projectname_sdk.core.response import RonSwansonQuotesResponse
+from projectname_sdk.core.spec import RonSwansonQuotesSpec
+from projectname_sdk.feature.base_feature import RonSwansonQuotesBaseFeature
 
 
 def _client():

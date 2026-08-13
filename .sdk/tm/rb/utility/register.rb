@@ -24,6 +24,7 @@ require_relative 'prepare_method'
 require_relative 'prepare_params'
 require_relative 'prepare_path'
 require_relative 'prepare_query'
+require_relative 'graphql'
 require_relative 'result_basic'
 require_relative 'result_body'
 require_relative 'result_headers'
@@ -55,6 +56,8 @@ RonSwansonQuotesUtility.registrar = ->(u) {
   u.prepare_params = RonSwansonQuotesUtilities::PrepareParams
   u.prepare_path = RonSwansonQuotesUtilities::PreparePath
   u.prepare_query = RonSwansonQuotesUtilities::PrepareQuery
+  u.graphql_body = RonSwansonQuotesUtilities::GraphqlBody
+  u.graphql_errors = RonSwansonQuotesUtilities::GraphqlErrors
   u.result_basic = RonSwansonQuotesUtilities::ResultBasic
   u.result_body = RonSwansonQuotesUtilities::ResultBody
   u.result_headers = RonSwansonQuotesUtilities::ResultHeaders

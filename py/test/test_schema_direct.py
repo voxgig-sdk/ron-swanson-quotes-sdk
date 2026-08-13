@@ -3,9 +3,9 @@
 import json
 import pytest
 
-from utility.voxgig_struct import voxgig_struct as vs
+from ronswansonquotes_sdk.utility.voxgig_struct import voxgig_struct as vs
 from ronswansonquotes_sdk import RonSwansonQuotesSDK
-from core import helpers
+from ronswansonquotes_sdk.core import helpers
 from test import runner
 
 
@@ -56,11 +56,11 @@ def _schema_direct_setup(mockres):
     calls = []
 
     env = runner.env_override({
-        "RONSWANSONQUOTES_TEST_SCHEMA_ENTID": {},
-        "RONSWANSONQUOTES_TEST_LIVE": "FALSE",
+        "RON_SWANSON_QUOTES_TEST_SCHEMA_ENTID": {},
+        "RON_SWANSON_QUOTES_TEST_LIVE": "FALSE",
     })
 
-    live = env.get("RONSWANSONQUOTES_TEST_LIVE") == "TRUE"
+    live = env.get("RON_SWANSON_QUOTES_TEST_LIVE") == "TRUE"
 
     if live:
         merged_opts = {

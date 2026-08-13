@@ -16,11 +16,11 @@
 import pytest
 
 from ronswansonquotes_sdk import RonSwansonQuotesSDK
-from core.error import RonSwansonQuotesError
-from core.result import RonSwansonQuotesResult
-from core.response import RonSwansonQuotesResponse
-from core.spec import RonSwansonQuotesSpec
-from feature.base_feature import RonSwansonQuotesBaseFeature
+from ronswansonquotes_sdk.core.error import RonSwansonQuotesError
+from ronswansonquotes_sdk.core.result import RonSwansonQuotesResult
+from ronswansonquotes_sdk.core.response import RonSwansonQuotesResponse
+from ronswansonquotes_sdk.core.spec import RonSwansonQuotesSpec
+from ronswansonquotes_sdk.feature.base_feature import RonSwansonQuotesBaseFeature
 
 
 def _client():

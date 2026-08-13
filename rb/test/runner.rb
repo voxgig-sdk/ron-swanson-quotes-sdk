@@ -23,8 +23,8 @@ module RonSwansonQuotesTestRunner
   end
 
   def self.env_override(m)
-    live = getenv("RONSWANSONQUOTES_TEST_LIVE")
-    override = getenv("RONSWANSONQUOTES_TEST_OVERRIDE")
+    live = getenv("RON_SWANSON_QUOTES_TEST_LIVE")
+    override = getenv("RON_SWANSON_QUOTES_TEST_OVERRIDE")
 
     if live == "TRUE" || override == "TRUE"
       m.each_key do |key|
@@ -44,8 +44,8 @@ module RonSwansonQuotesTestRunner
       end
     end
 
-    explain = getenv("RONSWANSONQUOTES_TEST_EXPLAIN")
-    m["RONSWANSONQUOTES_TEST_EXPLAIN"] = explain if explain && !explain.empty?
+    explain = getenv("RON_SWANSON_QUOTES_TEST_EXPLAIN")
+    m["RON_SWANSON_QUOTES_TEST_EXPLAIN"] = explain if explain && !explain.empty?
 
     m
   end

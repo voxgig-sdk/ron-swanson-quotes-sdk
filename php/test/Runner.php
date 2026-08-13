@@ -43,8 +43,8 @@ class RonSwansonQuotesTestRunner
 
     public static function env_override(array $m): array
     {
-        $live = self::getenv('RONSWANSONQUOTES_TEST_LIVE');
-        $override = self::getenv('RONSWANSONQUOTES_TEST_OVERRIDE');
+        $live = self::getenv('RON_SWANSON_QUOTES_TEST_LIVE');
+        $override = self::getenv('RON_SWANSON_QUOTES_TEST_OVERRIDE');
 
         if ($live === 'TRUE' || $override === 'TRUE') {
             foreach (array_keys($m) as $key) {
@@ -63,9 +63,9 @@ class RonSwansonQuotesTestRunner
             }
         }
 
-        $explain = self::getenv('RONSWANSONQUOTES_TEST_EXPLAIN');
+        $explain = self::getenv('RON_SWANSON_QUOTES_TEST_EXPLAIN');
         if ($explain !== null && $explain !== '') {
-            $m['RONSWANSONQUOTES_TEST_EXPLAIN'] = $explain;
+            $m['RON_SWANSON_QUOTES_TEST_EXPLAIN'] = $explain;
         }
 
         return $m;

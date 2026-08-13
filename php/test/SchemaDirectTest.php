@@ -65,11 +65,11 @@ function schema_direct_setup($mockres)
     $calls = new \ArrayObject();
 
     $env = Runner::env_override([
-        "RONSWANSONQUOTES_TEST_SCHEMA_ENTID" => [],
-        "RONSWANSONQUOTES_TEST_LIVE" => "FALSE",
+        "RON_SWANSON_QUOTES_TEST_SCHEMA_ENTID" => [],
+        "RON_SWANSON_QUOTES_TEST_LIVE" => "FALSE",
     ]);
 
-    $live = $env["RONSWANSONQUOTES_TEST_LIVE"] === "TRUE";
+    $live = $env["RON_SWANSON_QUOTES_TEST_LIVE"] === "TRUE";
 
     if ($live) {
         $merged_opts = [
