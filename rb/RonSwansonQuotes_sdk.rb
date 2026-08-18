@@ -28,7 +28,7 @@ class RonSwansonQuotesSDK
     utility = RonSwansonQuotesUtility.new
     @_utility = utility
 
-    config = RonSwansonQuotesConfig.make_config
+    config = RonSwansonQuotesConfig.shared_config
 
     @_rootctx = utility.make_context.call({
       "client" => self,

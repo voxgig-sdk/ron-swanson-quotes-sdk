@@ -9,8 +9,7 @@
 ---@class Quote
 
 ---@class QuoteLoadMatch
----@field id? number
----@field term? string
+---@field id number
 
 ---@class QuoteListMatch
 

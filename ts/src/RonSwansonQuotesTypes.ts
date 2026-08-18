@@ -9,8 +9,7 @@ export interface Quote {
 }
 
 export interface QuoteLoadMatch {
-  id?: number
-  term?: string
+  id: number
 }
 
 export interface QuoteListMatch {

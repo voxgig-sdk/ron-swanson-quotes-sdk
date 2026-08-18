@@ -40,7 +40,7 @@ class RonSwansonQuotesSDK
         $utility = new RonSwansonQuotesUtility();
         $this->_utility = $utility;
 
-        $config = RonSwansonQuotesConfig::make_config();
+        $config = RonSwansonQuotesConfig::shared_config();
 
         $this->_rootctx = ($utility->make_context)([
             "client" => $this,
