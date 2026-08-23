@@ -19,6 +19,9 @@ module RonSwansonQuotesConfig
     {
       "main" => {
         "name" => "RonSwansonQuotes",
+        "slug" => "ron-swanson-quotes",
+        "version" => "0.0.1",
+        "target" => "rb",
       },
       "feature" => {
         "test" => {

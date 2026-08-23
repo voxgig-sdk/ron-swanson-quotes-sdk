@@ -28,6 +28,9 @@ def make_config():
     return {
         "main": {
             "name": "RonSwansonQuotes",
+            "slug": "ron-swanson-quotes",
+            "version": "0.0.1",
+            "target": "py",
         },
         "feature": {
             "test": {
