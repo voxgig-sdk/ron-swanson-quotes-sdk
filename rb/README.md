@@ -37,7 +37,7 @@ begin
   # list returns an Array of Quote records — iterate directly.
   quotes = client.Quote.list
   quotes.each do |item|
-    puts "#{item}"
+    puts "#{item["id"]}"
   end
 rescue => err
   warn "list failed: #{err}"
@@ -254,6 +254,7 @@ returns a result `Hash` with these keys:
 
 | Field | Description |
 | --- | --- |
+| `id` |  |
 
 Operations: List, Load.
 
@@ -283,6 +284,12 @@ Create an instance: `quote = client.Quote`
 | --- | --- |
 | `list(match)` | List entities matching the criteria. |
 | `load(match)` | Load a single entity by match criteria. |
+
+#### Fields
+
+| Field | Type | Description |
+| --- | --- | --- |
+| `id` | `String` |  |
 
 #### Example: Load
 

@@ -124,6 +124,12 @@ Alias for `RonSwansonQuotesSDK.test()`.
 const quote = client.Quote()
 ```
 
+### Fields
+
+| Field | Type | Required | Description |
+| --- | --- | --- | --- |
+| `id` | `string` | No |  |
+
 ### Operations
 
 #### `list(match: object, ctrl?: object)`

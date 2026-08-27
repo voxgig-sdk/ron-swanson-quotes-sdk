@@ -6,6 +6,7 @@
 // @voxgig/apidef VALID_CANON). Do not edit by hand.
 
 export interface Quote {
+  id?: string
 }
 
 export interface QuoteLoadMatch {
@@ -13,6 +14,7 @@ export interface QuoteLoadMatch {
 }
 
 export interface QuoteListMatch {
+  id?: string
 }
 
 export interface Schema {

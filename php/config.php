@@ -42,6 +42,7 @@ class RonSwansonQuotesConfig
           'options' => [
             'active' => false,
           ],
+          'transport' => 'base',
         ],
             ],
             "options" => [
@@ -56,7 +57,12 @@ class RonSwansonQuotesConfig
             ],
             "entity" => [
         'quote' => [
-          'fields' => [],
+          'fields' => [
+            [
+              'name' => 'id',
+              'type' => '`$STRING`',
+            ],
+          ],
           'name' => 'quote',
           'op' => [
             'list' => [

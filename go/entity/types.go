@@ -14,6 +14,7 @@ import (
 
 // Quote is the typed data model for the quote entity.
 type Quote struct {
+	Id *string `json:"id,omitempty"`
 }
 
 // QuoteLoadMatch is the typed request payload for Quote.LoadTyped.
@@ -23,6 +24,7 @@ type QuoteLoadMatch struct {
 
 // QuoteListMatch is the typed request payload for Quote.ListTyped.
 type QuoteListMatch struct {
+	Id *string `json:"id,omitempty"`
 }
 
 // Schema is the typed data model for the schema entity.

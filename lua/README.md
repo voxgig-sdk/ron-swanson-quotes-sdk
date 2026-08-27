@@ -43,7 +43,7 @@ local quotes, err = client:Quote():list()
 if err then error(err) end
 
 for _, item in ipairs(quotes) do
-  print(item)
+  print(item["id"])
 end
 ```
 
@@ -242,6 +242,7 @@ Only `direct()` returns a response envelope — a `table` with `ok`,
 
 | Field | Description |
 | --- | --- |
+| `id` |  |
 
 Operations: List, Load.
 
@@ -271,6 +272,12 @@ Create an instance: `local quote = client:Quote(nil)`
 | --- | --- |
 | `list(match)` | List entities matching the criteria. |
 | `load(match)` | Load a single entity by match criteria. |
+
+#### Fields
+
+| Field | Type | Description |
+| --- | --- | --- |
+| `id` | `string` |  |
 
 #### Example: Load
 

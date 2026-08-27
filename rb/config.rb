@@ -28,6 +28,7 @@ module RonSwansonQuotesConfig
           "options" => {
             "active" => false,
           },
+          "transport" => "base",
         },
       },
       "options" => {
@@ -42,7 +43,12 @@ module RonSwansonQuotesConfig
       },
       "entity" => {
         "quote" => {
-          "fields" => [],
+          "fields" => [
+            {
+              "name" => "id",
+              "type" => "`$STRING`",
+            },
+          ],
           "name" => "quote",
           "op" => {
             "list" => {

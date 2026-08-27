@@ -90,6 +90,12 @@ same parameters as `direct()`.
 local quote = client:Quote(nil)
 ```
 
+### Fields
+
+| Field | Type | Required | Description |
+| --- | --- | --- | --- |
+| `id` | `string` | No |  |
+
 ### Operations
 
 #### `list(reqmatch, ctrl) -> any, err`

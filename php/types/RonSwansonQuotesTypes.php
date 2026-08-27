@@ -15,6 +15,7 @@ declare(strict_types=1);
 /** Quote entity data model. */
 class Quote
 {
+    public ?string $id = null;
 }
 
 /** Request payload for Quote#load. */
@@ -26,6 +27,7 @@ class QuoteLoadMatch
 /** Request payload for Quote#list. */
 class QuoteListMatch
 {
+    public ?string $id = null;
 }
 
 /** Schema entity data model. */

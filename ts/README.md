@@ -159,7 +159,7 @@ await entity.list()
 
 // Subsequent calls reuse the stored state
 const data = entity.data()
-console.log(data)
+console.log(data.id)
 ```
 
 ### Add custom middleware
@@ -303,6 +303,7 @@ The `prepare()` method returns:
 
 | Field | Description |
 | --- | --- |
+| `id` |  |
 
 Operations: list, load.
 
@@ -332,6 +333,12 @@ Create an instance: `const quote = client.Quote()`
 | --- | --- |
 | `list(match)` | List entities matching the criteria. |
 | `load(match)` | Load a single entity by match criteria. |
+
+#### Fields
+
+| Field | Type | Description |
+| --- | --- | --- |
+| `id` | `string` |  |
 
 #### Example: Load
 

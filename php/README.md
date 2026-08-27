@@ -38,7 +38,7 @@ try {
     // list() returns an array of Quote records — iterate directly.
     $quotes = $client->Quote()->list();
     foreach ($quotes as $item) {
-        echo json_encode($item) . "\n";
+        echo $item["id"] . "\n";
     }
 } catch (\Throwable $err) {
     echo "Error: " . $err->getMessage();
@@ -264,6 +264,7 @@ On error, `ok` is `false` and `$err` contains the error value.
 
 | Field | Description |
 | --- | --- |
+| `id` |  |
 
 Operations: List, Load.
 
@@ -293,6 +294,12 @@ Create an instance: `$quote = $client->Quote();`
 | --- | --- |
 | `list(match)` | List entities matching the criteria. |
 | `load(match)` | Load a single entity by match criteria. |
+
+#### Fields
+
+| Field | Type | Description |
+| --- | --- | --- |
+| `id` | `string` |  |
 
 #### Example: Load
 

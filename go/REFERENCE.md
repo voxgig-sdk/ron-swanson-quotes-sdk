@@ -98,6 +98,12 @@ quote := client.Quote(nil)
 fmt.Println(quote.GetName()) // "quote"
 ```
 
+### Fields
+
+| Field | Type | Required | Description |
+| --- | --- | --- | --- |
+| `id` | `string` | No |  |
+
 ### Operations
 
 #### `List(reqmatch, ctrl map[string]any) (any, error)`

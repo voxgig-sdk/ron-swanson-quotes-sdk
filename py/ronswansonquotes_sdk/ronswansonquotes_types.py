@@ -16,16 +16,16 @@ from __future__ import annotations
 from typing import TypedDict, Any
 
 
-class Quote(TypedDict):
-    pass
+class Quote(TypedDict, total=False):
+    id: str
 
 
 class QuoteLoadMatch(TypedDict):
     id: int
 
 
-class QuoteListMatch(TypedDict):
-    pass
+class QuoteListMatch(TypedDict, total=False):
+    id: str
 
 
 class Schema(TypedDict):

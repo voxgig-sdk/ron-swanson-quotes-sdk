@@ -7,11 +7,13 @@
 -- edit by hand.
 
 ---@class Quote
+---@field id? string
 
 ---@class QuoteLoadMatch
 ---@field id number
 
 ---@class QuoteListMatch
+---@field id? string
 
 ---@class Schema
 

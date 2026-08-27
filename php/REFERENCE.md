@@ -92,6 +92,12 @@ Prepare a fetch definition without sending the request. Returns the
 $quote = $client->Quote();
 ```
 
+### Fields
+
+| Field | Type | Required | Description |
+| --- | --- | --- | --- |
+| `id` | `string` | No |  |
+
 ### Operations
 
 #### `list(?array $reqmatch = null, ?array $ctrl = null): mixed`

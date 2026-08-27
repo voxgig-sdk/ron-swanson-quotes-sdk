@@ -93,6 +93,12 @@ same parameters as `direct()`. Raises on error.
 quote = client.Quote
 ```
 
+### Fields
+
+| Field | Type | Required | Description |
+| --- | --- | --- | --- |
+| `id` | `String` | No |  |
+
 ### Operations
 
 #### `list(reqmatch = nil, ctrl = nil) -> Array`

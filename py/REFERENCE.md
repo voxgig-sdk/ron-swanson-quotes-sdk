@@ -87,6 +87,12 @@ Prepare a fetch definition without sending. Returns the `fetchdef` and raises on
 quote = client.Quote()
 ```
 
+### Fields
+
+| Field | Type | Required | Description |
+| --- | --- | --- | --- |
+| `id` | `str` | No |  |
+
 ### Operations
 
 #### `list(reqmatch=None, ctrl=None) -> list`

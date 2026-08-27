@@ -9,8 +9,13 @@
 # annotations document the shapes. Do not edit by hand.
 
 # Quote entity data model.
-class Quote
-end
+#
+# @!attribute [rw] id
+#   @return [String, nil]
+Quote = Struct.new(
+  :id,
+  keyword_init: true
+)
 
 # Request payload for Quote#load.
 #
@@ -22,8 +27,13 @@ QuoteLoadMatch = Struct.new(
 )
 
 # Request payload for Quote#list.
-class QuoteListMatch
-end
+#
+# @!attribute [rw] id
+#   @return [String, nil]
+QuoteListMatch = Struct.new(
+  :id,
+  keyword_init: true
+)
 
 # Schema entity data model.
 class Schema
