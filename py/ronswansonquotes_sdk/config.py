@@ -1,6 +1,14 @@
 # RonSwansonQuotes SDK configuration
 
 
+# The sekreto plugin DEFINITIONS the model selected per feature, imported
+# above by name from the modules the catalogue's active `plugin.def`
+# entries declare. Handed to each feature (secrets builds its Sekreto
+# with them): a provider kind not listed here is unknown to that SDK.
+FEATURE_PLUGINS = {
+}
+
+
 _shared_config = None
 
 
@@ -58,6 +66,10 @@ def make_config():
             "type": "`$STRING`",
           },
         ],
+        "id": {
+          "field": "id",
+          "name": "id",
+        },
         "name": "quote",
         "op": {
           "list": {
@@ -69,14 +81,19 @@ def make_config():
                 "kind": "http",
                 "method": "GET",
                 "orig": "/quotes",
-                "parts": [
-                  "quotes",
+                "segments": [
+                  {
+                    "lit": "quotes",
+                  },
                 ],
                 "select": {},
                 "transform": {
                   "req": "`reqdata`",
                   "res": "`body`",
                 },
+                "parts": [
+                  "quotes",
+                ],
               },
             ],
           },
@@ -100,15 +117,19 @@ def make_config():
                 "kind": "http",
                 "method": "GET",
                 "orig": "/quotes/{count}",
-                "parts": [
-                  "quotes",
-                  "{id}",
-                ],
                 "rename": {
                   "param": {
                     "count": "id",
                   },
                 },
+                "segments": [
+                  {
+                    "lit": "quotes",
+                  },
+                  {
+                    "var": "id",
+                  },
+                ],
                 "select": {
                   "exist": [
                     "id",
@@ -118,6 +139,10 @@ def make_config():
                   "req": "`reqdata`",
                   "res": "`body`",
                 },
+                "parts": [
+                  "quotes",
+                  "{id}",
+                ],
               },
               {
                 "args": {
@@ -135,10 +160,16 @@ def make_config():
                 "kind": "http",
                 "method": "GET",
                 "orig": "/quotes/search/{term}",
-                "parts": [
-                  "quotes",
-                  "search",
-                  "{term}",
+                "segments": [
+                  {
+                    "lit": "quotes",
+                  },
+                  {
+                    "lit": "search",
+                  },
+                  {
+                    "var": "term",
+                  },
                 ],
                 "select": {
                   "exist": [
@@ -149,6 +180,11 @@ def make_config():
                   "req": "`reqdata`",
                   "res": "`body`",
                 },
+                "parts": [
+                  "quotes",
+                  "search",
+                  "{term}",
+                ],
               },
             ],
           },
@@ -174,14 +210,19 @@ def make_config():
                 "kind": "http",
                 "method": "GET",
                 "orig": "/schema",
-                "parts": [
-                  "schema",
+                "segments": [
+                  {
+                    "lit": "schema",
+                  },
                 ],
                 "select": {},
                 "transform": {
                   "req": "`reqdata`",
                   "res": "`body`",
                 },
+                "parts": [
+                  "schema",
+                ],
               },
             ],
           },

@@ -37,6 +37,10 @@ local function make_config()
             ["type"] = "`$STRING`",
           },
         },
+        ["id"] = {
+          ["field"] = "id",
+          ["name"] = "id",
+        },
         ["name"] = "quote",
         ["op"] = {
           ["list"] = {
@@ -48,13 +52,18 @@ local function make_config()
                 ["kind"] = "http",
                 ["method"] = "GET",
                 ["orig"] = "/quotes",
-                ["parts"] = {
-                  "quotes",
+                ["segments"] = {
+                  {
+                    ["lit"] = "quotes",
+                  },
                 },
                 ["select"] = {},
                 ["transform"] = {
                   ["req"] = "`reqdata`",
                   ["res"] = "`body`",
+                },
+                ["parts"] = {
+                  "quotes",
                 },
               },
             },
@@ -79,13 +88,17 @@ local function make_config()
                 ["kind"] = "http",
                 ["method"] = "GET",
                 ["orig"] = "/quotes/{count}",
-                ["parts"] = {
-                  "quotes",
-                  "{id}",
-                },
                 ["rename"] = {
                   ["param"] = {
                     ["count"] = "id",
+                  },
+                },
+                ["segments"] = {
+                  {
+                    ["lit"] = "quotes",
+                  },
+                  {
+                    ["var"] = "id",
                   },
                 },
                 ["select"] = {
@@ -96,6 +109,10 @@ local function make_config()
                 ["transform"] = {
                   ["req"] = "`reqdata`",
                   ["res"] = "`body`",
+                },
+                ["parts"] = {
+                  "quotes",
+                  "{id}",
                 },
               },
               {
@@ -114,10 +131,16 @@ local function make_config()
                 ["kind"] = "http",
                 ["method"] = "GET",
                 ["orig"] = "/quotes/search/{term}",
-                ["parts"] = {
-                  "quotes",
-                  "search",
-                  "{term}",
+                ["segments"] = {
+                  {
+                    ["lit"] = "quotes",
+                  },
+                  {
+                    ["lit"] = "search",
+                  },
+                  {
+                    ["var"] = "term",
+                  },
                 },
                 ["select"] = {
                   ["exist"] = {
@@ -127,6 +150,11 @@ local function make_config()
                 ["transform"] = {
                   ["req"] = "`reqdata`",
                   ["res"] = "`body`",
+                },
+                ["parts"] = {
+                  "quotes",
+                  "search",
+                  "{term}",
                 },
               },
             },
@@ -153,13 +181,18 @@ local function make_config()
                 ["kind"] = "http",
                 ["method"] = "GET",
                 ["orig"] = "/schema",
-                ["parts"] = {
-                  "schema",
+                ["segments"] = {
+                  {
+                    ["lit"] = "schema",
+                  },
                 },
                 ["select"] = {},
                 ["transform"] = {
                   ["req"] = "`reqdata`",
                   ["res"] = "`body`",
+                },
+                ["parts"] = {
+                  "schema",
                 },
               },
             },

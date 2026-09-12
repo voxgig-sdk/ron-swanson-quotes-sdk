@@ -63,6 +63,10 @@ class RonSwansonQuotesConfig
               'type' => '`$STRING`',
             ],
           ],
+          'id' => [
+            'field' => 'id',
+            'name' => 'id',
+          ],
           'name' => 'quote',
           'op' => [
             'list' => [
@@ -74,13 +78,18 @@ class RonSwansonQuotesConfig
                   'kind' => 'http',
                   'method' => 'GET',
                   'orig' => '/quotes',
-                  'parts' => [
-                    'quotes',
+                  'segments' => [
+                    [
+                      'lit' => 'quotes',
+                    ],
                   ],
                   'select' => [],
                   'transform' => [
                     'req' => '`reqdata`',
                     'res' => '`body`',
+                  ],
+                  'parts' => [
+                    'quotes',
                   ],
                 ],
               ],
@@ -105,13 +114,17 @@ class RonSwansonQuotesConfig
                   'kind' => 'http',
                   'method' => 'GET',
                   'orig' => '/quotes/{count}',
-                  'parts' => [
-                    'quotes',
-                    '{id}',
-                  ],
                   'rename' => [
                     'param' => [
                       'count' => 'id',
+                    ],
+                  ],
+                  'segments' => [
+                    [
+                      'lit' => 'quotes',
+                    ],
+                    [
+                      'var' => 'id',
                     ],
                   ],
                   'select' => [
@@ -122,6 +135,10 @@ class RonSwansonQuotesConfig
                   'transform' => [
                     'req' => '`reqdata`',
                     'res' => '`body`',
+                  ],
+                  'parts' => [
+                    'quotes',
+                    '{id}',
                   ],
                 ],
                 [
@@ -140,10 +157,16 @@ class RonSwansonQuotesConfig
                   'kind' => 'http',
                   'method' => 'GET',
                   'orig' => '/quotes/search/{term}',
-                  'parts' => [
-                    'quotes',
-                    'search',
-                    '{term}',
+                  'segments' => [
+                    [
+                      'lit' => 'quotes',
+                    ],
+                    [
+                      'lit' => 'search',
+                    ],
+                    [
+                      'var' => 'term',
+                    ],
                   ],
                   'select' => [
                     'exist' => [
@@ -153,6 +176,11 @@ class RonSwansonQuotesConfig
                   'transform' => [
                     'req' => '`reqdata`',
                     'res' => '`body`',
+                  ],
+                  'parts' => [
+                    'quotes',
+                    'search',
+                    '{term}',
                   ],
                 ],
               ],
@@ -179,13 +207,18 @@ class RonSwansonQuotesConfig
                   'kind' => 'http',
                   'method' => 'GET',
                   'orig' => '/schema',
-                  'parts' => [
-                    'schema',
+                  'segments' => [
+                    [
+                      'lit' => 'schema',
+                    ],
                   ],
                   'select' => [],
                   'transform' => [
                     'req' => '`reqdata`',
                     'res' => '`body`',
+                  ],
+                  'parts' => [
+                    'schema',
                   ],
                 ],
               ],
