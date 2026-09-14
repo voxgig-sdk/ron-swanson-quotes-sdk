@@ -105,7 +105,7 @@ local results, err = client:Quote():list()
 
 | Language | Package | Install |
 | --- | --- | --- |
-| TypeScript | `@voxgig-sdk/ron-swanson-quotes` | publish pending — [install from git tag](https://github.com/voxgig-sdk/ron-swanson-quotes-sdk/releases) |
+| TypeScript | `@voxgig-sdk/ron-swanson-quotes-sdk` | publish pending — [install from git tag](https://github.com/voxgig-sdk/ron-swanson-quotes-sdk/releases) |
 | Python | `voxgig-sdk-ron-swanson-quotes` | publish pending — [install from git tag](https://github.com/voxgig-sdk/ron-swanson-quotes-sdk/releases) |
 | PHP | `voxgig-sdk/ron-swanson-quotes` | publish pending — [install from git tag](https://github.com/voxgig-sdk/ron-swanson-quotes-sdk/releases) |
 | Golang | `github.com/voxgig-sdk/ron-swanson-quotes-sdk/go` | `go get github.com/voxgig-sdk/ron-swanson-quotes-sdk/go@latest` |
@@ -119,7 +119,7 @@ local results, err = client:Quote():list()
 ### TypeScript
 
 ```ts
-import { RonSwansonQuotesSDK } from '@voxgig-sdk/ron-swanson-quotes'
+import { RonSwansonQuotesSDK } from '@voxgig-sdk/ron-swanson-quotes-sdk'
 
 const client = new RonSwansonQuotesSDK()
 
