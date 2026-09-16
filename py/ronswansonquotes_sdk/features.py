@@ -1,12 +1,18 @@
 # RonSwansonQuotes SDK feature factory
 
 from ronswansonquotes_sdk.feature.base_feature import RonSwansonQuotesBaseFeature
+from ronswansonquotes_sdk.feature.ratelimit_feature import RonSwansonQuotesRatelimitFeature
+from ronswansonquotes_sdk.feature.retry_feature import RonSwansonQuotesRetryFeature
 from ronswansonquotes_sdk.feature.test_feature import RonSwansonQuotesTestFeature
+from ronswansonquotes_sdk.feature.timeout_feature import RonSwansonQuotesTimeoutFeature
 
 
 _FEATURES = {
     "base": lambda: RonSwansonQuotesBaseFeature(),
+    "ratelimit": lambda: RonSwansonQuotesRatelimitFeature(),
+    "retry": lambda: RonSwansonQuotesRetryFeature(),
     "test": lambda: RonSwansonQuotesTestFeature(),
+    "timeout": lambda: RonSwansonQuotesTimeoutFeature(),
 }
 
 

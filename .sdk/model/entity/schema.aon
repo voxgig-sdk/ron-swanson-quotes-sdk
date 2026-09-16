@@ -10,6 +10,12 @@ main: kit: entity: schema: {
       name: "load"
       points: [
         {
+          contract: {
+            id: "GET /schema"
+            json: "{\"operationId\":\"getSchema\",\"parameters\":[],\"protocol\":\"http\",\"responses\":{\"200\":{\"content\":{\"application/json\":{\"schema\":{\"description\":\"OpenAPI 3.0 specification\",\"type\":\"object\"}}},\"description\":\"Successful response with OpenAPI schema\"}},\"securitySource\":\"unspecified\"}"
+            source: "openapi3"
+            version: 1
+          }
           method: "GET"
           orig: "/schema"
           segments: [
