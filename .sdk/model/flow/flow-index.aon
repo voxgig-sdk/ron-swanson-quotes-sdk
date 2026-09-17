@@ -1,4 +1,4 @@
 # Flows
 
-@"BasicQuoteFlow.aon"
-@"BasicSchemaFlow.aon"
+@"./BasicQuoteFlow.aon"
+@"./BasicSchemaFlow.aon"

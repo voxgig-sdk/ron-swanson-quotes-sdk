@@ -127,12 +127,12 @@ class Config {
 
     entity: {
       
-      quote: {
-      },
-
-      schema: {
-      },
-
+        quote: {
+        },
+  
+        schema: {
+        },
+  
     }
   }
 
