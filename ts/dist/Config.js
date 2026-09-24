@@ -11,19 +11,12 @@ const FEATURE_CLASS = {
     test: TestFeature_1.TestFeature,
     timeout: TimeoutFeature_1.TimeoutFeature,
 };
-// Per-feature plugin DEFINITIONS (voxgig/plugin `Definition` values), from
-// the model's active plugin groups. A feature that takes a `plugins` option
-// (secrets over sekreto) reads its own entry; a feature with no plugins has
-// none. Named imports above make each definition statically reachable, so
-// an SDK carries exactly the plugin modules its model selects — the same
-// leanness the old side-effect registry imports bought, without a registry.
 const FEATURE_PLUGINS = {};
 exports.FEATURE_PLUGINS = FEATURE_PLUGINS;
 class Config {
     makeFeature(fn) {
         const fc = FEATURE_CLASS[fn];
         const fi = new fc();
-        // TODO: errors etc
         return fi;
     }
     // False for a feature added at runtime via options.extend (station's
@@ -115,6 +108,7 @@ class Config {
             "fields": [
                 {
                     "name": "id",
+                    "title": "Id",
                     "type": "`$STRING`"
                 }
             ],
@@ -129,7 +123,6 @@ class Config {
                     "name": "list",
                     "points": [
                         {
-                            "args": {},
                             "kind": "http",
                             "method": "GET",
                             "orig": "/quotes",
@@ -138,14 +131,16 @@ class Config {
                                     "lit": "quotes"
                                 }
                             ],
-                            "select": {},
+                            "parts": [
+                                "quotes"
+                            ],
+                            "rename": {},
                             "transform": {
                                 "req": "`reqdata`",
                                 "res": "`body`"
                             },
-                            "parts": [
-                                "quotes"
-                            ]
+                            "args": {},
+                            "select": {}
                         }
                     ]
                 },
@@ -154,26 +149,9 @@ class Config {
                     "name": "load",
                     "points": [
                         {
-                            "args": {
-                                "params": [
-                                    {
-                                        "example": 2,
-                                        "kind": "param",
-                                        "name": "id",
-                                        "orig": "count",
-                                        "reqd": true,
-                                        "type": "`$INTEGER`"
-                                    }
-                                ]
-                            },
                             "kind": "http",
                             "method": "GET",
                             "orig": "/quotes/{count}",
-                            "rename": {
-                                "param": {
-                                    "count": "id"
-                                }
-                            },
                             "segments": [
                                 {
                                     "lit": "quotes"
@@ -182,33 +160,38 @@ class Config {
                                     "var": "id"
                                 }
                             ],
-                            "select": {
-                                "exist": [
-                                    "id"
-                                ]
+                            "parts": [
+                                "quotes",
+                                "{id}"
+                            ],
+                            "rename": {
+                                "param": {
+                                    "count": "id"
+                                }
                             },
                             "transform": {
                                 "req": "`reqdata`",
                                 "res": "`body`"
                             },
-                            "parts": [
-                                "quotes",
-                                "{id}"
-                            ]
-                        },
-                        {
                             "args": {
                                 "params": [
                                     {
-                                        "example": "hate",
+                                        "name": "id",
+                                        "orig": "count",
+                                        "type": "`$INTEGER`",
                                         "kind": "param",
-                                        "name": "term",
-                                        "orig": "term",
                                         "reqd": true,
-                                        "type": "`$STRING`"
+                                        "example": 2
                                     }
                                 ]
                             },
+                            "select": {
+                                "exist": [
+                                    "id"
+                                ]
+                            }
+                        },
+                        {
                             "kind": "http",
                             "method": "GET",
                             "orig": "/quotes/search/{term}",
@@ -223,30 +206,39 @@ class Config {
                                     "var": "term"
                                 }
                             ],
-                            "select": {
-                                "exist": [
-                                    "term"
-                                ]
-                            },
-                            "transform": {
-                                "req": "`reqdata`",
-                                "res": "`body`"
-                            },
                             "parts": [
                                 "quotes",
                                 "search",
                                 "{term}"
-                            ]
+                            ],
+                            "rename": {},
+                            "transform": {
+                                "req": "`reqdata`",
+                                "res": "`body`"
+                            },
+                            "args": {
+                                "params": [
+                                    {
+                                        "name": "term",
+                                        "orig": "term",
+                                        "type": "`$STRING`",
+                                        "kind": "param",
+                                        "reqd": true,
+                                        "example": "hate"
+                                    }
+                                ]
+                            },
+                            "select": {
+                                "exist": [
+                                    "term"
+                                ]
+                            }
                         }
                     ]
                 }
             },
             "relations": {
-                "ancestors": [
-                    [
-                        "search"
-                    ]
-                ]
+                "ancestors": []
             }
         },
         "schema": {
@@ -258,7 +250,6 @@ class Config {
                     "name": "load",
                     "points": [
                         {
-                            "args": {},
                             "kind": "http",
                             "method": "GET",
                             "orig": "/schema",
@@ -267,14 +258,16 @@ class Config {
                                     "lit": "schema"
                                 }
                             ],
-                            "select": {},
+                            "parts": [
+                                "schema"
+                            ],
+                            "rename": {},
                             "transform": {
                                 "req": "`reqdata`",
                                 "res": "`body`"
                             },
-                            "parts": [
-                                "schema"
-                            ]
+                            "args": {},
+                            "select": {}
                         }
                     ]
                 }

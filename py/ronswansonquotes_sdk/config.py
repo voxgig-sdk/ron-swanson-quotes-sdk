@@ -117,6 +117,7 @@ def make_config():
         "fields": [
           {
             "name": "id",
+            "title": "Id",
             "type": "`$STRING`",
           },
         ],
@@ -131,7 +132,6 @@ def make_config():
             "name": "list",
             "points": [
               {
-                "args": {},
                 "kind": "http",
                 "method": "GET",
                 "orig": "/quotes",
@@ -140,14 +140,16 @@ def make_config():
                     "lit": "quotes",
                   },
                 ],
-                "select": {},
+                "parts": [
+                  "quotes",
+                ],
+                "rename": {},
                 "transform": {
                   "req": "`reqdata`",
                   "res": "`body`",
                 },
-                "parts": [
-                  "quotes",
-                ],
+                "args": {},
+                "select": {},
               },
             ],
           },
@@ -156,26 +158,9 @@ def make_config():
             "name": "load",
             "points": [
               {
-                "args": {
-                  "params": [
-                    {
-                      "example": 2,
-                      "kind": "param",
-                      "name": "id",
-                      "orig": "count",
-                      "reqd": True,
-                      "type": "`$INTEGER`",
-                    },
-                  ],
-                },
                 "kind": "http",
                 "method": "GET",
                 "orig": "/quotes/{count}",
-                "rename": {
-                  "param": {
-                    "count": "id",
-                  },
-                },
                 "segments": [
                   {
                     "lit": "quotes",
@@ -184,33 +169,38 @@ def make_config():
                     "var": "id",
                   },
                 ],
-                "select": {
-                  "exist": [
-                    "id",
-                  ],
+                "parts": [
+                  "quotes",
+                  "{id}",
+                ],
+                "rename": {
+                  "param": {
+                    "count": "id",
+                  },
                 },
                 "transform": {
                   "req": "`reqdata`",
                   "res": "`body`",
                 },
-                "parts": [
-                  "quotes",
-                  "{id}",
-                ],
-              },
-              {
                 "args": {
                   "params": [
                     {
-                      "example": "hate",
+                      "name": "id",
+                      "orig": "count",
+                      "type": "`$INTEGER`",
                       "kind": "param",
-                      "name": "term",
-                      "orig": "term",
                       "reqd": True,
-                      "type": "`$STRING`",
+                      "example": 2,
                     },
                   ],
                 },
+                "select": {
+                  "exist": [
+                    "id",
+                  ],
+                },
+              },
+              {
                 "kind": "http",
                 "method": "GET",
                 "orig": "/quotes/search/{term}",
@@ -225,30 +215,39 @@ def make_config():
                     "var": "term",
                   },
                 ],
-                "select": {
-                  "exist": [
-                    "term",
-                  ],
-                },
-                "transform": {
-                  "req": "`reqdata`",
-                  "res": "`body`",
-                },
                 "parts": [
                   "quotes",
                   "search",
                   "{term}",
                 ],
+                "rename": {},
+                "transform": {
+                  "req": "`reqdata`",
+                  "res": "`body`",
+                },
+                "args": {
+                  "params": [
+                    {
+                      "name": "term",
+                      "orig": "term",
+                      "type": "`$STRING`",
+                      "kind": "param",
+                      "reqd": True,
+                      "example": "hate",
+                    },
+                  ],
+                },
+                "select": {
+                  "exist": [
+                    "term",
+                  ],
+                },
               },
             ],
           },
         },
         "relations": {
-          "ancestors": [
-            [
-              "search",
-            ],
-          ],
+          "ancestors": [],
         },
       },
       "schema": {
@@ -260,7 +259,6 @@ def make_config():
             "name": "load",
             "points": [
               {
-                "args": {},
                 "kind": "http",
                 "method": "GET",
                 "orig": "/schema",
@@ -269,14 +267,16 @@ def make_config():
                     "lit": "schema",
                   },
                 ],
-                "select": {},
+                "parts": [
+                  "schema",
+                ],
+                "rename": {},
                 "transform": {
                   "req": "`reqdata`",
                   "res": "`body`",
                 },
-                "parts": [
-                  "schema",
-                ],
+                "args": {},
+                "select": {},
               },
             ],
           },

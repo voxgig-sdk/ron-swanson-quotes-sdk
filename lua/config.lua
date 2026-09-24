@@ -88,6 +88,7 @@ local function make_config()
         ["fields"] = {
           {
             ["name"] = "id",
+            ["title"] = "Id",
             ["type"] = "`$STRING`",
           },
         },
@@ -102,7 +103,6 @@ local function make_config()
             ["name"] = "list",
             ["points"] = {
               {
-                ["args"] = {},
                 ["kind"] = "http",
                 ["method"] = "GET",
                 ["orig"] = "/quotes",
@@ -111,14 +111,16 @@ local function make_config()
                     ["lit"] = "quotes",
                   },
                 },
-                ["select"] = {},
+                ["parts"] = {
+                  "quotes",
+                },
+                ["rename"] = {},
                 ["transform"] = {
                   ["req"] = "`reqdata`",
                   ["res"] = "`body`",
                 },
-                ["parts"] = {
-                  "quotes",
-                },
+                ["args"] = {},
+                ["select"] = {},
               },
             },
           },
@@ -127,26 +129,9 @@ local function make_config()
             ["name"] = "load",
             ["points"] = {
               {
-                ["args"] = {
-                  ["params"] = {
-                    {
-                      ["example"] = 2,
-                      ["kind"] = "param",
-                      ["name"] = "id",
-                      ["orig"] = "count",
-                      ["reqd"] = true,
-                      ["type"] = "`$INTEGER`",
-                    },
-                  },
-                },
                 ["kind"] = "http",
                 ["method"] = "GET",
                 ["orig"] = "/quotes/{count}",
-                ["rename"] = {
-                  ["param"] = {
-                    ["count"] = "id",
-                  },
-                },
                 ["segments"] = {
                   {
                     ["lit"] = "quotes",
@@ -155,33 +140,38 @@ local function make_config()
                     ["var"] = "id",
                   },
                 },
-                ["select"] = {
-                  ["exist"] = {
-                    "id",
+                ["parts"] = {
+                  "quotes",
+                  "{id}",
+                },
+                ["rename"] = {
+                  ["param"] = {
+                    ["count"] = "id",
                   },
                 },
                 ["transform"] = {
                   ["req"] = "`reqdata`",
                   ["res"] = "`body`",
                 },
-                ["parts"] = {
-                  "quotes",
-                  "{id}",
-                },
-              },
-              {
                 ["args"] = {
                   ["params"] = {
                     {
-                      ["example"] = "hate",
+                      ["name"] = "id",
+                      ["orig"] = "count",
+                      ["type"] = "`$INTEGER`",
                       ["kind"] = "param",
-                      ["name"] = "term",
-                      ["orig"] = "term",
                       ["reqd"] = true,
-                      ["type"] = "`$STRING`",
+                      ["example"] = 2,
                     },
                   },
                 },
+                ["select"] = {
+                  ["exist"] = {
+                    "id",
+                  },
+                },
+              },
+              {
                 ["kind"] = "http",
                 ["method"] = "GET",
                 ["orig"] = "/quotes/search/{term}",
@@ -196,30 +186,39 @@ local function make_config()
                     ["var"] = "term",
                   },
                 },
-                ["select"] = {
-                  ["exist"] = {
-                    "term",
-                  },
-                },
-                ["transform"] = {
-                  ["req"] = "`reqdata`",
-                  ["res"] = "`body`",
-                },
                 ["parts"] = {
                   "quotes",
                   "search",
                   "{term}",
+                },
+                ["rename"] = {},
+                ["transform"] = {
+                  ["req"] = "`reqdata`",
+                  ["res"] = "`body`",
+                },
+                ["args"] = {
+                  ["params"] = {
+                    {
+                      ["name"] = "term",
+                      ["orig"] = "term",
+                      ["type"] = "`$STRING`",
+                      ["kind"] = "param",
+                      ["reqd"] = true,
+                      ["example"] = "hate",
+                    },
+                  },
+                },
+                ["select"] = {
+                  ["exist"] = {
+                    "term",
+                  },
                 },
               },
             },
           },
         },
         ["relations"] = {
-          ["ancestors"] = {
-            {
-              "search",
-            },
-          },
+          ["ancestors"] = {},
         },
       },
       ["schema"] = {
@@ -231,7 +230,6 @@ local function make_config()
             ["name"] = "load",
             ["points"] = {
               {
-                ["args"] = {},
                 ["kind"] = "http",
                 ["method"] = "GET",
                 ["orig"] = "/schema",
@@ -240,14 +238,16 @@ local function make_config()
                     ["lit"] = "schema",
                   },
                 },
-                ["select"] = {},
+                ["parts"] = {
+                  "schema",
+                },
+                ["rename"] = {},
                 ["transform"] = {
                   ["req"] = "`reqdata`",
                   ["res"] = "`body`",
                 },
-                ["parts"] = {
-                  "schema",
-                },
+                ["args"] = {},
+                ["select"] = {},
               },
             },
           },

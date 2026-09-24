@@ -92,6 +92,7 @@ func MakeConfig() map[string]any {
 				"fields": []any{
 					map[string]any{
 						"name": "id",
+						"title": "Id",
 						"type": "`$STRING`",
 					},
 				},
@@ -106,7 +107,6 @@ func MakeConfig() map[string]any {
 						"name": "list",
 						"points": []any{
 							map[string]any{
-								"args": map[string]any{},
 								"kind": "http",
 								"method": "GET",
 								"orig": "/quotes",
@@ -115,14 +115,16 @@ func MakeConfig() map[string]any {
 										"lit": "quotes",
 									},
 								},
-								"select": map[string]any{},
+								"parts": []any{
+									"quotes",
+								},
+								"rename": map[string]any{},
 								"transform": map[string]any{
 									"req": "`reqdata`",
 									"res": "`body`",
 								},
-								"parts": []any{
-									"quotes",
-								},
+								"args": map[string]any{},
+								"select": map[string]any{},
 							},
 						},
 					},
@@ -131,26 +133,9 @@ func MakeConfig() map[string]any {
 						"name": "load",
 						"points": []any{
 							map[string]any{
-								"args": map[string]any{
-									"params": []any{
-										map[string]any{
-											"example": 2,
-											"kind": "param",
-											"name": "id",
-											"orig": "count",
-											"reqd": true,
-											"type": "`$INTEGER`",
-										},
-									},
-								},
 								"kind": "http",
 								"method": "GET",
 								"orig": "/quotes/{count}",
-								"rename": map[string]any{
-									"param": map[string]any{
-										"count": "id",
-									},
-								},
 								"segments": []any{
 									map[string]any{
 										"lit": "quotes",
@@ -159,33 +144,38 @@ func MakeConfig() map[string]any {
 										"var": "id",
 									},
 								},
-								"select": map[string]any{
-									"exist": []any{
-										"id",
+								"parts": []any{
+									"quotes",
+									"{id}",
+								},
+								"rename": map[string]any{
+									"param": map[string]any{
+										"count": "id",
 									},
 								},
 								"transform": map[string]any{
 									"req": "`reqdata`",
 									"res": "`body`",
 								},
-								"parts": []any{
-									"quotes",
-									"{id}",
-								},
-							},
-							map[string]any{
 								"args": map[string]any{
 									"params": []any{
 										map[string]any{
-											"example": "hate",
+											"name": "id",
+											"orig": "count",
+											"type": "`$INTEGER`",
 											"kind": "param",
-											"name": "term",
-											"orig": "term",
 											"reqd": true,
-											"type": "`$STRING`",
+											"example": 2,
 										},
 									},
 								},
+								"select": map[string]any{
+									"exist": []any{
+										"id",
+									},
+								},
+							},
+							map[string]any{
 								"kind": "http",
 								"method": "GET",
 								"orig": "/quotes/search/{term}",
@@ -200,30 +190,39 @@ func MakeConfig() map[string]any {
 										"var": "term",
 									},
 								},
-								"select": map[string]any{
-									"exist": []any{
-										"term",
-									},
-								},
-								"transform": map[string]any{
-									"req": "`reqdata`",
-									"res": "`body`",
-								},
 								"parts": []any{
 									"quotes",
 									"search",
 									"{term}",
+								},
+								"rename": map[string]any{},
+								"transform": map[string]any{
+									"req": "`reqdata`",
+									"res": "`body`",
+								},
+								"args": map[string]any{
+									"params": []any{
+										map[string]any{
+											"name": "term",
+											"orig": "term",
+											"type": "`$STRING`",
+											"kind": "param",
+											"reqd": true,
+											"example": "hate",
+										},
+									},
+								},
+								"select": map[string]any{
+									"exist": []any{
+										"term",
+									},
 								},
 							},
 						},
 					},
 				},
 				"relations": map[string]any{
-					"ancestors": []any{
-						[]any{
-							"search",
-						},
-					},
+					"ancestors": []any{},
 				},
 			},
 			"schema": map[string]any{
@@ -235,7 +234,6 @@ func MakeConfig() map[string]any {
 						"name": "load",
 						"points": []any{
 							map[string]any{
-								"args": map[string]any{},
 								"kind": "http",
 								"method": "GET",
 								"orig": "/schema",
@@ -244,14 +242,16 @@ func MakeConfig() map[string]any {
 										"lit": "schema",
 									},
 								},
-								"select": map[string]any{},
+								"parts": []any{
+									"schema",
+								},
+								"rename": map[string]any{},
 								"transform": map[string]any{
 									"req": "`reqdata`",
 									"res": "`body`",
 								},
-								"parts": []any{
-									"schema",
-								},
+								"args": map[string]any{},
+								"select": map[string]any{},
 							},
 						},
 					},

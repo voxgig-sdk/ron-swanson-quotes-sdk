@@ -44,10 +44,6 @@ const live_runner_1 = require("../../live-runner");
 const live_entity_1 = require("../../live-entity");
 const __1 = require("../../..");
 const utility_1 = require("../../utility");
-// AFTER the imports on purpose: TypeScript hoists `import` above any
-// statement in the emitted CommonJS, so a loader placed above them would
-// run only after every imported module had already been evaluated - and
-// anything reading process.env at module scope would miss these values.
 (0, utility_1.loadEnvLocal)(__dirname + '/../../../.env.local');
 (0, node_test_1.describe)('SchemaEntity', async () => {
     // Per-test live pacing. Delay is read from sdk-test-control.json's
@@ -66,7 +62,7 @@ const utility_1 = require("../../utility");
         }
         const setup = basicSetup();
         if (setup.live) {
-            return (0, live_entity_1.runLiveEntity)(setup, { "active": true, "alias": { "field": {} }, "fields": [], "name": "schema", "op": { "load": { "input": "data", "name": "load", "points": [{ "active": true, "args": {}, "contract": { "id": "GET /schema", "json": "{\"operationId\":\"getSchema\",\"parameters\":[],\"protocol\":\"http\",\"responses\":{\"200\":{\"content\":{\"application/json\":{\"schema\":{\"description\":\"OpenAPI 3.0 specification\",\"type\":\"object\"}}},\"description\":\"Successful response with OpenAPI schema\"}},\"securitySource\":\"unspecified\"}", "source": "openapi3", "version": 1 }, "kind": "http", "method": "GET", "orig": "/schema", "segments": [{ "lit": "schema" }], "select": {}, "transform": { "req": "`reqdata`", "res": "`body`" }, "index$": 0 }], "key$": "load" } }, "relations": { "ancestors": [] }, "key$": "schema", "name__orig": "schema", "Name": "Schema", "name_": "schema", "name-": "schema", "NAME": "SCHEMA", "index$": 1 }, { "active": true, "entity": "schema", "key$": "BasicSchemaFlow", "kind": "basic", "name": "BasicSchemaFlow", "param": {}, "step": [{ "active": true, "data": {}, "input": { "ref": "schema_ref01", "srcdatavar": "schema_ref01_data", "suffix": "_dt0" }, "match": {}, "op": "load", "spec": [], "valid": [{ "apply": "TextFieldMark", "def": { "mark": "Mark01-schema_ref01" } }], "index$": 0 }] }, 'Schema');
+            return (0, live_entity_1.runLiveEntity)(setup, { "active": true, "alias": { "field": {} }, "fields": {}, "name": "schema", "op": { "load": { "input": "data", "name": "load", "points": [{ "a": true, "co": { "id": "GET /schema", "source": "openapi3", "version": 2 }, "g": {}, "k": "http", "m": "GET", "o": "/schema", "q": {}, "r": {}, "s": [{ "lit": "schema" }], "t": { "req": "`reqdata`", "res": "`body`" }, "index$": 0 }], "key$": "load" } }, "relations": { "ancestors": [] }, "key$": "schema", "name__orig": "schema", "Name": "Schema", "name_": "schema", "name-": "schema", "NAME": "SCHEMA", "index$": 1 }, { "active": true, "entity": "schema", "key$": "BasicSchemaFlow", "kind": "basic", "name": "BasicSchemaFlow", "param": {}, "step": [{ "a": true, "d": {}, "i": { "ref": "schema_ref01", "srcdatavar": "schema_ref01_data", "suffix": "_dt0" }, "m": {}, "o": "load", "s": [], "v": [{ "apply": "TextFieldMark", "def": { "mark": "Mark01-schema_ref01" } }], "index$": 0 }] }, 'Schema', { "GET /schema": { "protocol": "http", "operationId": "getSchema", "responses": { "200": { "description": "Successful response with OpenAPI schema", "content": { "application/json": { "schema": { "type": "object", "description": "OpenAPI 3.0 specification" } } } } }, "parameters": [], "securitySource": "unspecified" } });
         }
         const client = setup.client;
         const struct = setup.struct;
